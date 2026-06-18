@@ -77,9 +77,9 @@
     .signup {
       margin: 3.5em 0;
       padding: 2.5em;
-      background: #f7f7f9;
+      background: #f4f5f6;
       border-radius: 8px;
-      border: 1px solid #eaeaea;
+      border: 1px solid #e2e4e6;
     }
     .signup h2 {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -169,13 +169,20 @@
       outline: none !important;
     }
 
-    /* Button Wrap and Formatting */
-    #mlb2-42782900 .ml-form-transformHeader {
+    /* Button Layout Centering and Styling Overrides */
+    #mlb2-42782900 .ml-form-horizontalRow .ml-button-horizontal,
+    #mlb2-42782900 .ml-form-horizontalRow .ml-button-horizontal.labelsOn,
+    #mlb2-42782900 .ml-form-embedSubmit {
+      width: 100% !important;
       display: block !important;
-      width: 100% !important;
+      margin: 0 !important;
+      float: none !important;
     }
-    #mlb2-42782900 .ml-form-embedSubmit button {
+
+    #mlb2-42782900 .ml-form-embedSubmit button,
+    #mlb2-42782900 button.primary {
       width: 100% !important;
+      max-width: 100% !important;
       display: block !important;
       background: #c62828 !important;
       border: none !important;
@@ -189,10 +196,12 @@
       line-height: 50px !important;
       cursor: pointer !important;
       margin: 0 !important;
+      float: none !important;
       transition: background 0.15s ease-in-out;
       box-shadow: 0 2px 4px rgba(198, 40, 40, 0.15);
     }
-    #mlb2-42782900 .ml-form-embedSubmit button:hover {
+    #mlb2-42782900 .ml-form-embedSubmit button:hover,
+    #mlb2-42782900 button.primary:hover {
       background: #b32424 !important;
     }
 
