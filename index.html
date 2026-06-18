@@ -110,167 +110,94 @@
     .footer a:hover {
       text-decoration: underline;
     }
-
-    /* ============================================================
-       MAILERLITE CLASS OVERHAUL (DYNAMIC SELECTION INTERCEPT)
-       ============================================================ */
-    /* Container Cleansing */
-    .signup .ml-form-embedContainer,
-    .signup .ml-form-embedWrapper,
-    .signup .ml-form-embedBody,
-    .signup .ml-form-formContent,
-    .signup .ml-form-embedSubmit,
-    .signup .ml-embedded {
-      background: transparent !important;
-      background-color: transparent !important;
-      box-shadow: none !important;
-      border: none !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-
-    /* Force Clean Structural Stack Layout */
-    .signup .ml-form-horizontalRow,
-    .signup .ml-form-form,
-    .signup .ml-form-fieldRow,
-    .signup .ml-field-group,
-    .signup .ml-input-horizontal {
-      display: block !important;
-      width: 100% !important;
-      float: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-
-    /* Input Field Normalization */
-    .signup .ml-embedded input[type="email"],
-    .signup .ml-form-control {
-      width: 100% !important;
-      background: #ffffff !important;
-      border: 1px solid #cccccc !important;
-      border-radius: 4px !important;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-      font-size: 16px !important;
-      padding: 14px 16px !important;
-      box-sizing: border-box !important;
-      color: #222222 !important;
-      height: 50px !important;
-      display: block !important;
-      margin: 0 0 14px 0 !important;
-      float: none !important;
-      transition: border-color 0.15s ease-in-out;
-    }
-    .signup .ml-embedded input[type="email"]:focus,
-    .signup .ml-form-control:focus {
-      border-color: #666666 !important;
-      outline: none !important;
-    }
-
-    /* Button Layout & Premium Charcoal Styling Overrides */
-    .signup .ml-form-embedSubmit,
-    .signup .ml-form-horizontalRow .ml-button-horizontal {
-      width: 100% !important;
-      display: block !important;
-      margin: 0 !important;
-      float: none !important;
-    }
-    .signup .ml-embedded button,
-    .signup .ml-embedded .ml-btn,
-    .signup .ml-embedded [type="submit"],
-    .signup button.primary {
-      width: 100% !important;
-      max-width: 100% !important;
-      display: block !important;
-      background: #333333 !important;
-      background-color: #333333 !important;
-      border: none !important;
-      border-radius: 4px !important;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-      font-weight: bold !important;
-      color: #ffffff !important;
-      font-size: 16px !important;
-      padding: 0 24px !important;
-      height: 50px !important;
-      line-height: 50px !important;
-      cursor: pointer !important;
-      margin: 0 0 14px 0 !important;
-      float: none !important;
-      transition: background-color 0.15s ease-in-out;
-      box-shadow: none !important;
-      text-transform: none !important;
-    }
-    .signup .ml-embedded button:hover,
-    .signup .ml-embedded .ml-btn:hover,
-    .signup .ml-embedded [type="submit"]:hover,
-    .signup button.primary:hover {
-      background: #444444 !important;
-      background-color: #444444 !important;
-    }
-
-    /* Muted Privacy Disclaimer Layout Formatting */
-    .signup .ml-form-privacyText,
-    .signup .ml-form-embedBody p,
-    .signup .w-newsletter-common-element {
-      font-family: Georgia, serif !important;
-      font-size: 13px !important;
-      color: #666666 !important;
-      line-height: 1.6 !important;
-      margin: 6px 0 16px 0 !important;
-      text-align: center !important;
-      display: block !important;
-    }
-
-    /* Explicit Compliance Checkbox Realignment & Typography Hierarchy */
-    .signup .ml-form-checkboxRow,
-    .signup .ml-form-embedPermissions {
-      display: block !important;
-      text-align: left !important;
-      margin: 16px 0 0 0 !important;
-      padding: 0 !important;
-      width: 100% !important;
-    }
-    .signup .ml-form-checkboxRow label,
-    .signup .ml-form-embedPermissions label {
-      font-family: Georgia, serif !important;
-      color: #333333 !important;
-      font-size: 14px !important;
-      line-height: 1.5 !important;
-      display: flex !important;
-      align-items: flex-start !important;
-      justify-content: flex-start !important;
-      text-align: left !important;
-      cursor: pointer !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-    .signup .ml-form-checkboxRow input[type="checkbox"],
-    .signup .ml-form-embedPermissions input[type="checkbox"] {
-      margin: 4px 10px 0 0 !important;
-      flex-shrink: 0 !important;
-      width: 16px !important;
-      height: 16px !important;
-      padding: 0 !important;
-      cursor: pointer !important;
-      display: inline-block !important;
-      position: relative !important;
-    }
-    
-    /* Remove background adjustments on form confirmation alerts */
-    .signup .ml-form-successBody .ml-form-successContent {
-      padding: 1em 0 !important;
-      background: transparent !important;
-      text-align: center !important;
-    }
   </style>
 
+  <!-- MailerLite Core Engine Script -->
   <script>
       (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
       .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
       n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
       (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
       ml('account', '2455462');
+  </script>
+
+  <!-- Dynamic Style Interceptor to Overwrite Generated Forms Cleanly -->
+  <script>
+    (function() {
+      var checkExist = setInterval(function() {
+        var mlContainer = document.querySelector('.ml-embedded div[id^="mlb2-"]');
+        if (mlContainer) {
+          clearInterval(checkExist);
+          var id = mlContainer.getAttribute('id');
+          var style = document.createElement('style');
+          style.textContent = `
+            /* Clean Up Default Layout Backdrops */
+            #${id} .ml-form-embedWrapper,
+            #${id} .ml-form-embedBody,
+            #${id} .ml-form-embedContainer {
+              background: transparent !important;
+              background-color: transparent !important;
+              box-shadow: none !important;
+              border: none !important;
+              padding: 0 !important;
+              margin: 0 !important;
+            }
+            /* Hide Duplicate Plaintext Paragraph Elements Injected by MailerLite */
+            #${id} .ml-form-privacyText, 
+            #${id} .ml-form-embedBody p, 
+            #${id} .w-newsletter-common-element {
+              display: none !important;
+            }
+            /* Normalize Email Entry Fields */
+            #${id} .form-control, #${id} input[type="email"] {
+              font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+              font-size: 16px !important;
+              border: 1px solid #cccccc !important;
+              border-radius: 4px !important;
+              height: 50px !important;
+              box-sizing: border-box !important;
+              color: #222222 !important;
+              margin-bottom: 14px !important;
+            }
+            /* Apply Premium Charcoal Theme to Active Form Button Elements */
+            #${id} button.primary, #${id} .ml-btn, #${id} [type="submit"] {
+              background-color: #333333 !important;
+              background: #333333 !important;
+              font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+              font-weight: bold !important;
+              font-size: 16px !important;
+              border-radius: 4px !important;
+              border: none !important;
+              box-shadow: none !important;
+              height: 50px !important;
+              line-height: 50px !important;
+              transition: background-color 0.15s ease-in-out !important;
+            }
+            #${id} button.primary:hover, #${id} .ml-btn:hover, #${id} [type="submit"]:hover {
+              background-color: #444444 !important;
+              background: #444444 !important;
+            }
+            /* Keep Spinner Button Background Uniform Without Altering its Visibility State */
+            #${id} .loading {
+              background-color: #333333 !important;
+              background: #333333 !important;
+              border-radius: 4px !important;
+            }
+            /* Anchor Mandatory Checkbox Row Typography into Book Serif Theme */
+            #${id} .ml-form-checkboxRow label, #${id} .ml-form-embedPermissions label {
+              font-family: Georgia, serif !important;
+              color: #333333 !important;
+              font-size: 14px !important;
+              line-height: 1.5 !important;
+            }
+            #${id} .ml-form-checkboxRow input[type="checkbox"] {
+              margin: 4px 10px 0 0 !important;
+            }
+          `;
+          document.head.appendChild(style);
+        }
+      }, 50);
+    })();
   </script>
 </head>
 <body>
@@ -292,7 +219,6 @@
 
   <div class="buy-links">
     <strong>Buy the book:</strong>
-    <!-- Links coming soon — the book launches shortly. -->
     <em>Links coming soon — the book launches shortly.</em>
   </div>
 
