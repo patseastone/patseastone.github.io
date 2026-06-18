@@ -15,7 +15,7 @@
       padding: 0 1.5em;
       line-height: 1.8;
       color: #222;
-      background: #fff;
+      background: #faf8f5; /* Premium off-white paper canvas tone to match the book cover */
       -webkit-font-smoothing: antialiased;
     }
     img {
@@ -61,8 +61,8 @@
       text-align: center;
       margin: 3em 0;
       padding: 1.5em;
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
+      border-top: 1px solid #e2e4e6;
+      border-bottom: 1px solid #e2e4e6;
     }
     .buy-links strong {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -75,14 +75,14 @@
       color: #666;
     }
     
-    /* Premium Editorial Container Overhaul */
+    /* Premium Editorial Form Container */
     .signup {
       margin: 3.5em 0;
       padding: 2.5em;
-      background: #ffffff;
+      background: #fdfcfb; /* Subtle paper contrast accent for the container background */
       border-radius: 8px;
-      border: 1px solid #e2e4e6;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+      border: 1px solid #d3d5d7;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     }
     .signup h2 {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -103,7 +103,7 @@
       font-size: 0.85em;
       color: #888;
       margin-top: 4em;
-      border-top: 1px solid #eee;
+      border-top: 1px solid #e2e4e6;
       padding-top: 2em;
     }
     .footer a {
@@ -114,7 +114,7 @@
       text-decoration: underline;
     }
 
-    /* Clean Up Default Layout Backdrops Instantly via CSS Base */
+    /* Strip Out Default MailerLite Layout Tint Backdrops */
     .ml-embedded, .ml-form-embedContainer, .ml-form-embedWrapper, .ml-form-embedBody {
       background: transparent !important;
       background-color: transparent !important;
@@ -123,7 +123,6 @@
     }
   </style>
 
-  <!-- MailerLite Core Engine Script -->
   <script>
       (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
       .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
@@ -132,39 +131,47 @@
       ml('account', '2455462');
   </script>
 
-  <!-- High-Priority Style Normalizer -->
   <script>
     (function() {
-      function applyFormOverhaul() {
+      function overhaulEmbeddedForm() {
         var formInstance = document.querySelector('.ml-embedded form');
         if (!formInstance) return;
 
-        // 1. Enforce Charcoal Theme on Interactive Submit Buttons
+        // 1. Structural Button Alignment & Editorial Colour Pass (No White Text)
         var actionButtons = formInstance.querySelectorAll('button');
         actionButtons.forEach(function(btn) {
-          if (btn.classList.contains('loading')) {
-            btn.style.setProperty('background-color', '#333333', 'important');
-            btn.style.setProperty('background', '#333333', 'important');
-          } else {
-            btn.style.setProperty('background-color', '#333333', 'important');
-            btn.style.setProperty('background', '#333333', 'important');
-            btn.style.setProperty('font-family', '"Helvetica Neue", Helvetica, Arial, sans-serif', 'important');
-            btn.style.setProperty('font-weight', 'bold', 'important');
-            btn.style.setProperty('font-size', '16px', 'important');
-            btn.style.setProperty('color', '#ffffff', 'important');
-            btn.style.setProperty('border-radius', '4px', 'important');
-            btn.style.setProperty('height', '50px', 'important');
-            btn.style.setProperty('line-height', '50px', 'important');
-            btn.style.setProperty('border', 'none', 'important');
-            btn.style.setProperty('box-shadow', 'none', 'important');
-            btn.style.setProperty('text-transform', 'none', 'important');
+          btn.style.setProperty('background-color', 'transparent', 'important');
+          btn.style.setProperty('background', 'transparent', 'important');
+          btn.style.setProperty('color', '#333333', 'important');
+          btn.style.setProperty('border', '2px solid #333333', 'important');
+          
+          // Absolute vertical and horizontal center alignment configuration
+          btn.style.setProperty('display', 'flex', 'important');
+          btn.style.setProperty('align-items', 'center', 'important');
+          btn.style.setProperty('justify-content', 'center', 'important');
+          btn.style.setProperty('text-align', 'center', 'important');
+          
+          btn.style.setProperty('font-family', '"Helvetica Neue", Helvetica, Arial, sans-serif', 'important');
+          btn.style.setProperty('font-weight', 'bold', 'important');
+          btn.style.setProperty('font-size', '16px', 'important');
+          btn.style.setProperty('border-radius', '4px', 'important');
+          btn.style.setProperty('height', '50px', 'important');
+          btn.style.setProperty('line-height', 'normal', 'important');
+          btn.style.setProperty('padding', '0 20px', 'important');
+          btn.style.setProperty('box-shadow', 'none', 'important');
+          btn.style.setProperty('text-transform', 'none', 'important');
 
-            btn.onmouseover = function() { btn.style.setProperty('background-color', '#444444', 'important'); };
-            btn.onmouseout = function() { btn.style.setProperty('background-color', '#333333', 'important'); };
-          }
+          btn.onmouseover = function() { 
+            btn.style.setProperty('background-color', '#333333', 'important'); 
+            btn.style.setProperty('color', '#ffffff', 'important'); 
+          };
+          btn.onmouseout = function() { 
+            btn.style.setProperty('background-color', 'transparent', 'important'); 
+            btn.style.setProperty('color', '#333333', 'important'); 
+          };
         });
 
-        // 2. Format Input Fields
+        // 2. Format Email Input Field Blocks
         var inputFields = formInstance.querySelectorAll('input[type="email"], .form-control');
         inputFields.forEach(function(input) {
           input.style.setProperty('font-family', '"Helvetica Neue", Helvetica, Arial, sans-serif', 'important');
@@ -175,43 +182,39 @@
           input.style.setProperty('color', '#222222', 'important');
           input.style.setProperty('background', '#ffffff', 'important');
 
-          input.onfocus = function() { input.style.setProperty('border-color', '#666666', 'important'); };
+          input.onfocus = function() { input.style.setProperty('border-color', '#333333', 'important'); };
           input.onblur = function() { input.style.setProperty('border-color', '#cccccc', 'important'); };
         });
 
-        // 3. Restore Missing Text & Unify Typography Style
-        var textLabels = formInstance.querySelectorAll('.ml-form-checkboxRow label, .ml-form-embedPermissions label, label');
-        textLabels.forEach(function(label) {
-          label.style.setProperty('font-family', 'Georgia, serif', 'important');
-          label.style.setProperty('color', '#333333', 'important');
+        // 3. Elegant Book-Serif Styling for Consent & Unsubscribe Copy
+        var complianceLabels = formInstance.querySelectorAll('.ml-form-checkboxRow label, .ml-form-embedPermissions label, .ml-form-privacyText, label, p');
+        complianceLabels.forEach(function(label) {
+          label.style.setProperty('font-family', 'Georgia, "Times New Roman", serif', 'important');
+          label.style.setProperty('color', '#444444', 'important');
           label.style.setProperty('font-size', '14px', 'important');
-          label.style.setProperty('line-height', '1.5', 'important');
-          label.style.setProperty('display', 'flex', 'important');
-          label.style.setProperty('align-items', 'flex-start', 'important');
-          label.style.setProperty('text-align', 'left', 'important');
+          label.style.setProperty('line-height', '1.6', 'important');
         });
 
-        var textElements = formInstance.querySelectorAll('.ml-form-checkboxRow label *, .ml-form-embedPermissions label *');
-        textElements.forEach(function(el) {
-          el.style.setProperty('display', 'inline', 'important');
-          el.style.setProperty('font-family', 'Georgia, serif', 'important');
-          el.style.setProperty('color', '#333333', 'important');
+        var childElements = formInstance.querySelectorAll('.ml-form-checkboxRow label *, .ml-form-embedPermissions label *');
+        childElements.forEach(function(el) {
+          el.style.setProperty('font-family', 'Georgia, "Times New Roman", serif', 'important');
+          el.style.setProperty('color', '#444444', 'important');
           el.style.setProperty('font-size', '14px', 'important');
         });
       }
 
-      // Initialize observer to apply modifications during script execution
-      var formObserver = new MutationObserver(function() { applyFormOverhaul(); });
-      var targetContainer = document.querySelector('.ml-embedded');
-      if (targetContainer) {
-        formObserver.observe(targetContainer, { childList: true, subtree: true });
+      // Live mutation observer to monitor form injection states
+      var structuralObserver = new MutationObserver(function() { overhaulEmbeddedForm(); });
+      var domTarget = document.querySelector('.ml-embedded');
+      if (domTarget) {
+        structuralObserver.observe(domTarget, { childList: true, subtree: true });
       }
 
-      // Fallback verification loop
-      var executionCount = 0;
-      var verificationInterval = setInterval(function() {
-        applyFormOverhaul();
-        if (++executionCount > 60) clearInterval(verificationInterval);
+      // Safe continuous execution fallback cycle
+      var trackingCycles = 0;
+      var processLoop = setInterval(function() {
+        overhaulEmbeddedForm();
+        if (++trackingCycles > 50) clearInterval(processLoop);
       }, 100);
     })();
   </script>
@@ -242,11 +245,10 @@
     <h2>Get the free pre‑gym guide</h2>
     <p>Five mistakes beginners make in the gym — and how to avoid them. Free PDF, no spam.</p>
     
-    <!-- Embedded MailerLite Form Instance Wrapper -->
     <div class="ml-embedded" data-form="tTpOUB"></div>
     
-    <p style="text-align:center; font-size:0.85em; color:#666666; margin-top:1.5em; margin-bottom:0; font-family: Georgia, serif;">
-      By signing up, you agree to our <a href="/privacy.html" style="color:#333333; text-decoration:underline;">privacy policy</a>.
+    <p style="text-align:center; font-size:0.85em; color:#444444; margin-top:1.5em; margin-bottom:0; font-family: Georgia, serif;">
+      By requesting this free guide, you agree to our <a href="/privacy.html" style="color:#111111; text-decoration:underline;">privacy policy</a>.
     </p>
   </div>
 
