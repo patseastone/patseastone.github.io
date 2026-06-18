@@ -112,15 +112,17 @@
     }
 
     /* ============================================================
-       MAILERLITE OVERRIDES (AGGRESSIVE RESET)
+       MAILERLITE CLASS OVERHAUL (DYNAMIC SELECTION INTERCEPT)
        ============================================================ */
     /* Container Cleansing */
-    #mlb2-42782900.ml-form-embedContainer,
-    #mlb2-42782900 .ml-form-embedWrapper,
-    #mlb2-42782900 .ml-form-embedBody,
-    #mlb2-42782900 .ml-form-formContent,
-    #mlb2-42782900 .ml-form-embedSubmit {
+    .signup .ml-form-embedContainer,
+    .signup .ml-form-embedWrapper,
+    .signup .ml-form-embedBody,
+    .signup .ml-form-formContent,
+    .signup .ml-form-embedSubmit,
+    .signup .ml-embedded {
       background: transparent !important;
+      background-color: transparent !important;
       box-shadow: none !important;
       border: none !important;
       padding: 0 !important;
@@ -129,30 +131,26 @@
       max-width: 100% !important;
     }
 
-    /* Force Vertical Stack Layout */
-    #mlb2-42782900 .ml-form-horizontalRow,
-    #mlb2-42782900 .ml-form-form {
+    /* Force Clean Structural Stack Layout */
+    .signup .ml-form-horizontalRow,
+    .signup .ml-form-form,
+    .signup .ml-form-fieldRow,
+    .signup .ml-field-group,
+    .signup .ml-input-horizontal {
       display: block !important;
       width: 100% !important;
-    }
-
-    /* Input & Field Wrappers Structural Force */
-    #mlb2-42782900 .ml-form-horizontalRow .ml-input-horizontal,
-    #mlb2-42782900 .ml-form-fieldRow,
-    #mlb2-42782900 .ml-field-group {
-      width: 100% !important;
-      display: block !important;
-      margin: 0 0 12px 0 !important;
       float: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
 
-    /* Input Field Styling */
-    #mlb2-42782900 .ml-form-horizontalRow input,
-    #mlb2-42782900 .ml-field-group input {
+    /* Input Field Normalization */
+    .signup .ml-embedded input[type="email"],
+    .signup .ml-form-control {
       width: 100% !important;
       background: #ffffff !important;
       border: 1px solid #cccccc !important;
-      border-radius: 6px !important;
+      border-radius: 4px !important;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
       font-size: 16px !important;
       padding: 14px 16px !important;
@@ -160,76 +158,107 @@
       color: #222222 !important;
       height: 50px !important;
       display: block !important;
-      margin: 0 !important;
+      margin: 0 0 14px 0 !important;
+      float: none !important;
       transition: border-color 0.15s ease-in-out;
     }
-    #mlb2-42782900 .ml-form-horizontalRow input:focus,
-    #mlb2-42782900 .ml-field-group input:focus {
+    .signup .ml-embedded input[type="email"]:focus,
+    .signup .ml-form-control:focus {
       border-color: #666666 !important;
       outline: none !important;
     }
 
-    /* Button Layout Centering and Styling Overrides */
-    #mlb2-42782900 .ml-form-horizontalRow .ml-button-horizontal,
-    #mlb2-42782900 .ml-form-horizontalRow .ml-button-horizontal.labelsOn,
-    #mlb2-42782900 .ml-form-embedSubmit {
+    /* Button Layout & Premium Charcoal Styling Overrides */
+    .signup .ml-form-embedSubmit,
+    .signup .ml-form-horizontalRow .ml-button-horizontal {
       width: 100% !important;
       display: block !important;
       margin: 0 !important;
       float: none !important;
     }
-
-    #mlb2-42782900 .ml-form-embedSubmit button,
-    #mlb2-42782900 button.primary {
+    .signup .ml-embedded button,
+    .signup .ml-embedded .ml-btn,
+    .signup .ml-embedded [type="submit"],
+    .signup button.primary {
       width: 100% !important;
       max-width: 100% !important;
       display: block !important;
-      background: #c62828 !important;
+      background: #333333 !important;
+      background-color: #333333 !important;
       border: none !important;
-      border-radius: 6px !important;
+      border-radius: 4px !important;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-      font-weight: 600 !important;
+      font-weight: bold !important;
       color: #ffffff !important;
       font-size: 16px !important;
       padding: 0 24px !important;
       height: 50px !important;
       line-height: 50px !important;
       cursor: pointer !important;
-      margin: 0 !important;
+      margin: 0 0 14px 0 !important;
       float: none !important;
-      transition: background 0.15s ease-in-out;
-      box-shadow: 0 2px 4px rgba(198, 40, 40, 0.15);
+      transition: background-color 0.15s ease-in-out;
+      box-shadow: none !important;
+      text-transform: none !important;
     }
-    #mlb2-42782900 .ml-form-embedSubmit button:hover,
-    #mlb2-42782900 button.primary:hover {
-      background: #b32424 !important;
+    .signup .ml-embedded button:hover,
+    .signup .ml-embedded .ml-btn:hover,
+    .signup .ml-embedded [type="submit"]:hover,
+    .signup button.primary:hover {
+      background: #444444 !important;
+      background-color: #444444 !important;
     }
 
-    /* GDPR / Compliance Checkbox Section Alignment */
-    #mlb2-42782900 .ml-form-checkboxRow {
+    /* Muted Privacy Disclaimer Layout Formatting */
+    .signup .ml-form-privacyText,
+    .signup .ml-form-embedBody p,
+    .signup .w-newsletter-common-element {
+      font-family: Georgia, serif !important;
+      font-size: 13px !important;
+      color: #666666 !important;
+      line-height: 1.6 !important;
+      margin: 6px 0 16px 0 !important;
+      text-align: center !important;
+      display: block !important;
+    }
+
+    /* Explicit Compliance Checkbox Realignment & Typography Hierarchy */
+    .signup .ml-form-checkboxRow,
+    .signup .ml-form-embedPermissions {
       display: block !important;
       text-align: left !important;
       margin: 16px 0 0 0 !important;
       padding: 0 !important;
+      width: 100% !important;
     }
-    #mlb2-42782900 .ml-form-checkboxRow label {
+    .signup .ml-form-checkboxRow label,
+    .signup .ml-form-embedPermissions label {
       font-family: Georgia, serif !important;
-      color: #555555 !important;
+      color: #333333 !important;
       font-size: 14px !important;
       line-height: 1.5 !important;
-      display: inline-flex !important;
+      display: flex !important;
       align-items: flex-start !important;
-      cursor: pointer;
+      justify-content: flex-start !important;
+      text-align: left !important;
+      cursor: pointer !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
-    #mlb2-42782900 .ml-form-checkboxRow input[type="checkbox"] {
-      margin: 3px 10px 0 0 !important;
+    .signup .ml-form-checkboxRow input[type="checkbox"],
+    .signup .ml-form-embedPermissions input[type="checkbox"] {
+      margin: 4px 10px 0 0 !important;
       flex-shrink: 0 !important;
       width: 16px !important;
       height: 16px !important;
+      padding: 0 !important;
+      cursor: pointer !important;
+      display: inline-block !important;
+      position: relative !important;
     }
     
-    /* Remove default success messages wrapper background anomalies */
-    #mlb2-42782900 .ml-form-successBody .ml-form-successContent {
+    /* Remove background adjustments on form confirmation alerts */
+    .signup .ml-form-successBody .ml-form-successContent {
       padding: 1em 0 !important;
       background: transparent !important;
       text-align: center !important;
@@ -243,7 +272,7 @@
       (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
       ml('account', '2455462');
   </script>
-  </head>
+</head>
 <body>
 
   <img src="cover.jpg" alt="The Complete Handbook book cover">
@@ -263,6 +292,7 @@
 
   <div class="buy-links">
     <strong>Buy the book:</strong>
+    <!-- Links coming soon — the book launches shortly. -->
     <em>Links coming soon — the book launches shortly.</em>
   </div>
 
@@ -270,10 +300,11 @@
     <h2>Get the free pre‑gym guide</h2>
     <p>Five mistakes beginners make in the gym — and how to avoid them. Free PDF, no spam.</p>
     
+    <!-- Embedded MailerLite Form Instance Wrapper -->
     <div class="ml-embedded" data-form="tTpOUB"></div>
     
-    <p style="text-align:center; font-size:0.85em; color:#777; margin-top:1.5em; margin-bottom:0;">
-      By signing up, you agree to our <a href="/privacy.html" style="color:#555; text-decoration:underline;">privacy policy</a>.
+    <p style="text-align:center; font-size:0.85em; color:#666666; margin-top:1.5em; margin-bottom:0; font-family: Georgia, serif;">
+      By signing up, you agree to our <a href="/privacy.html" style="color:#333333; text-decoration:underline;">privacy policy</a>.
     </p>
   </div>
 
