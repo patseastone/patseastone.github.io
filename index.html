@@ -15,16 +15,19 @@
       padding: 0 1.5em;
       line-height: 1.8;
       color: #222;
-      background: #faf8f5; /* Premium off-white paper canvas tone to match the book cover */
+      background: #faf8f5; /* Premium off-white paper canvas tone */
       -webkit-font-smoothing: antialiased;
     }
+    
     img {
       max-width: 240px;
       display: block;
       margin: 0 auto 2.5em;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      border-radius: 4px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      border: 1px solid #f0f0f0; /* Crisp edge definition for the white cover */
+      border-radius: 2px;
     }
+
     h1 {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       text-align: center;
@@ -34,6 +37,7 @@
       margin-bottom: 0.2em;
       color: #111;
     }
+
     .subtitle {
       text-align: center;
       font-size: 1.05em;
@@ -51,12 +55,14 @@
       display: block;
       margin-top: 0.5em;
     }
+
     .description {
       margin-bottom: 3em;
     }
     .description p {
       margin-bottom: 1.2em;
     }
+
     .buy-links {
       text-align: center;
       margin: 3em 0;
@@ -75,13 +81,16 @@
       color: #666;
     }
     
-    /* Premium Editorial Form Container */
+    /* ============================================================
+       PREMIUM SIGNUP CARD
+       ============================================================ */
     .signup {
       margin: 3.5em 0;
-      padding: 2.5em;
-      background: #f4f5f6; /* Restored original premium grey container background */
-      border-radius: 8px;
-      border: 1px solid #e2e4e6;
+      padding: 3em 2.5em;
+      background: #ffffff; /* Crisp white makes the form pop off the page */
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* Subtle lift */
+      border: 1px solid #eaeaea;
     }
     .signup h2 {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -94,9 +103,11 @@
     .signup > p {
       text-align: center;
       color: #555;
-      margin-bottom: 1.8em;
+      margin-bottom: 2.2em;
       font-size: 0.95em;
     }
+
+    /* Footer */
     .footer {
       text-align: center;
       font-size: 0.85em;
@@ -106,7 +117,7 @@
       padding-top: 2em;
     }
     .footer a {
-      color: #666;
+      color: #C62828; /* Brand red for links */
       text-decoration: none;
     }
     .footer a:hover {
@@ -119,6 +130,7 @@
       background-color: transparent !important;
       box-shadow: none !important;
       border: none !important;
+      padding: 0 !important;
     }
   </style>
 
@@ -131,75 +143,92 @@
       ml('account', '2455462');
   </script>
 
-  <!-- Strict Style Normalizer Block -->
+  <!-- Strict Style Normalizer Block (FIXED) -->
   <script>
     (function() {
       function overhaulEmbeddedForm() {
         var formInstance = document.querySelector('.ml-embedded form');
         if (!formInstance) return;
 
-        // 1. Hide MailerLite's Injected Duplicate Privacy Text Block Cleanly
+        // 1. Hide MailerLite's Injected Duplicate Privacy Text Cleanly
         var genericPrivacyText = formInstance.querySelector('.ml-form-privacyText');
         if (genericPrivacyText) {
           genericPrivacyText.style.setProperty('display', 'none', 'important');
         }
 
-        // 2. Uniform Button Layout Configuration (Solid Tone, Charcoal Text, No Second Box)
+        // Force form elements to stack 100% width cleanly
+        var formGroups = formInstance.querySelectorAll('.ml-form-fieldRow, .ml-form-embedSubmit');
+        formGroups.forEach(function(group) {
+          group.style.setProperty('display', 'block', 'important');
+          group.style.setProperty('width', '100%', 'important');
+          group.style.setProperty('margin-bottom', '15px', 'important');
+        });
+
+        // 2. Uniform Button Layout Configuration (BRAND RED)
         var actionButtons = formInstance.querySelectorAll('button');
         actionButtons.forEach(function(btn) {
-          btn.style.setProperty('background-color', '#e2e4e6', 'important');
-          btn.style.setProperty('background', '#e2e4e6', 'important');
-          btn.style.setProperty('color', '#333333', 'important');
-          btn.style.setProperty('border', '2px solid #333333', 'important');
+          btn.style.setProperty('background-color', '#C62828', 'important');
+          btn.style.setProperty('background', '#C62828', 'important');
+          btn.style.setProperty('color', '#ffffff', 'important');
+          btn.style.setProperty('border', 'none', 'important');
           
-          // Precise typographic alignment centering without changing the base display type
           btn.style.setProperty('text-align', 'center', 'important');
           btn.style.setProperty('font-family', '"Helvetica Neue", Helvetica, Arial, sans-serif', 'important');
           btn.style.setProperty('font-weight', 'bold', 'important');
           btn.style.setProperty('font-size', '16px', 'important');
           btn.style.setProperty('border-radius', '4px', 'important');
           btn.style.setProperty('height', '50px', 'important');
-          btn.style.setProperty('line-height', '46px', 'important'); /* Perfectly balances text vertically inside 50px height */
-          btn.style.setProperty('padding', '0 20px', 'important');
+          btn.style.setProperty('width', '100%', 'important');
+          btn.style.setProperty('cursor', 'pointer', 'important');
           btn.style.setProperty('box-shadow', 'none', 'important');
-          btn.style.setProperty('text-transform', 'none', 'important');
+          btn.style.setProperty('transition', 'background-color 0.2s', 'important');
 
           btn.onmouseover = function() { 
-            btn.style.setProperty('background-color', '#d3d5d7', 'important'); 
+            btn.style.setProperty('background-color', '#9E2020', 'important'); 
           };
           btn.onmouseout = function() { 
-            btn.style.setProperty('background-color', '#e2e4e6', 'important'); 
+            btn.style.setProperty('background-color', '#C62828', 'important'); 
           };
         });
 
-        // 3. Format Email Field Enclosures
-        var inputFields = formInstance.querySelectorAll('input[type="email"], .form-control');
+        // 3. Format Email Field Enclosures (Added Padding & Box-Sizing)
+        var inputFields = formInstance.querySelectorAll('input[type="email"], input[type="text"], .form-control');
         inputFields.forEach(function(input) {
           input.style.setProperty('font-family', '"Helvetica Neue", Helvetica, Arial, sans-serif', 'important');
           input.style.setProperty('font-size', '16px', 'important');
           input.style.setProperty('border', '1px solid #cccccc', 'important');
           input.style.setProperty('border-radius', '4px', 'important');
           input.style.setProperty('height', '50px', 'important');
+          input.style.setProperty('width', '100%', 'important');
+          input.style.setProperty('padding', '0 15px', 'important'); /* Stops text from hitting the edge */
+          input.style.setProperty('box-sizing', 'border-box', 'important');
           input.style.setProperty('color', '#222222', 'important');
           input.style.setProperty('background', '#ffffff', 'important');
+          input.style.setProperty('margin-bottom', '10px', 'important');
 
-          input.onfocus = function() { input.style.setProperty('border-color', '#333333', 'important'); };
-          input.onblur = function() { input.style.setProperty('border-color', '#cccccc', 'important'); };
+          input.onfocus = function() { 
+              input.style.setProperty('border-color', '#C62828', 'important'); 
+              input.style.setProperty('outline', 'none', 'important');
+          };
+          input.onblur = function() { 
+              input.style.setProperty('border-color', '#cccccc', 'important'); 
+          };
         });
 
         // 4. Anchor Consent Checkbox Text into Book Serif Theme
         var complianceLabels = formInstance.querySelectorAll('.ml-form-checkboxRow label, .ml-form-embedPermissions label, label, p');
         complianceLabels.forEach(function(label) {
           label.style.setProperty('font-family', 'Georgia, "Times New Roman", serif', 'important');
-          label.style.setProperty('color', '#444444', 'important');
+          label.style.setProperty('color', '#555555', 'important');
           label.style.setProperty('font-size', '14px', 'important');
-          label.style.setProperty('line-height', '1.6', 'important');
+          label.style.setProperty('line-height', '1.5', 'important');
+          label.style.setProperty('margin-top', '5px', 'important');
         });
 
         var childElements = formInstance.querySelectorAll('.ml-form-checkboxRow label *, .ml-form-embedPermissions label *');
         childElements.forEach(function(el) {
           el.style.setProperty('font-family', 'Georgia, "Times New Roman", serif', 'important');
-          el.style.setProperty('color', '#444444', 'important');
+          el.style.setProperty('color', '#555555', 'important');
           el.style.setProperty('font-size', '14px', 'important');
         });
       }
@@ -226,7 +255,7 @@
 
   <h1>The Complete Handbook</h1>
   <div class="subtitle">
-    A Beginner's Gym Guide to Lifting
+    A Beginner's Gym Guide to Lifting<br>
     <em>No Rigid Plans. No Bro‑Science. Build Muscle, Strength, and Confidence on Your Own Terms.</em>
   </div>
 
@@ -249,9 +278,9 @@
     <!-- Embedded MailerLite Form Instance Wrapper -->
     <div class="ml-embedded" data-form="tTpOUB"></div>
     
-    <!-- Custom Compliance Statement (Only text block displaying at the bottom) -->
-    <p style="text-align:center; font-size:0.85em; color:#444444; margin-top:1.5em; margin-bottom:0; font-family: Georgia, serif;">
-      By requesting this free guide, you agree to our <a href="/privacy.html" style="color:#111111; text-decoration:underline;">privacy policy</a>.
+    <!-- Custom Compliance Statement -->
+    <p style="text-align:center; font-size:0.85em; color:#666666; margin-top:2em; margin-bottom:0; font-family: Georgia, serif;">
+      By requesting this free guide, you agree to our <a href="/privacy.html" style="color:#C62828; text-decoration:none;">privacy policy</a>.
     </p>
   </div>
 
