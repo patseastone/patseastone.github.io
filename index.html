@@ -79,10 +79,9 @@
     .signup {
       margin: 3.5em 0;
       padding: 2.5em;
-      background: #fdfcfb; /* Subtle paper contrast accent for the container background */
+      background: #f4f5f6; /* Restored original premium grey container background */
       border-radius: 8px;
-      border: 1px solid #d3d5d7;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e2e4e6;
     }
     .signup h2 {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -114,7 +113,7 @@
       text-decoration: underline;
     }
 
-    /* Strip Out Default MailerLite Layout Tint Backdrops */
+    /* Strip Out MailerLite Form Internal Layout Tint Overlays */
     .ml-embedded, .ml-form-embedContainer, .ml-form-embedWrapper, .ml-form-embedBody {
       background: transparent !important;
       background-color: transparent !important;
@@ -123,6 +122,7 @@
     }
   </style>
 
+  <!-- MailerLite Core Engine Script -->
   <script>
       (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
       .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
@@ -131,47 +131,48 @@
       ml('account', '2455462');
   </script>
 
+  <!-- Strict Style Normalizer Block -->
   <script>
     (function() {
       function overhaulEmbeddedForm() {
         var formInstance = document.querySelector('.ml-embedded form');
         if (!formInstance) return;
 
-        // 1. Structural Button Alignment & Editorial Colour Pass (No White Text)
+        // 1. Hide MailerLite's Injected Duplicate Privacy Text Block Cleanly
+        var genericPrivacyText = formInstance.querySelector('.ml-form-privacyText');
+        if (genericPrivacyText) {
+          genericPrivacyText.style.setProperty('display', 'none', 'important');
+        }
+
+        // 2. Uniform Button Layout Configuration (Solid Tone, Charcoal Text, No Second Box)
         var actionButtons = formInstance.querySelectorAll('button');
         actionButtons.forEach(function(btn) {
-          btn.style.setProperty('background-color', 'transparent', 'important');
-          btn.style.setProperty('background', 'transparent', 'important');
+          btn.style.setProperty('background-color', '#e2e4e6', 'important');
+          btn.style.setProperty('background', '#e2e4e6', 'important');
           btn.style.setProperty('color', '#333333', 'important');
           btn.style.setProperty('border', '2px solid #333333', 'important');
           
-          // Absolute vertical and horizontal center alignment configuration
-          btn.style.setProperty('display', 'flex', 'important');
-          btn.style.setProperty('align-items', 'center', 'important');
-          btn.style.setProperty('justify-content', 'center', 'important');
+          // Precise typographic alignment centering without changing the base display type
           btn.style.setProperty('text-align', 'center', 'important');
-          
           btn.style.setProperty('font-family', '"Helvetica Neue", Helvetica, Arial, sans-serif', 'important');
           btn.style.setProperty('font-weight', 'bold', 'important');
           btn.style.setProperty('font-size', '16px', 'important');
           btn.style.setProperty('border-radius', '4px', 'important');
           btn.style.setProperty('height', '50px', 'important');
-          btn.style.setProperty('line-height', 'normal', 'important');
+          btn.style.setProperty('line-height', '46px', 'important'); /* Perfectly balances text vertically inside 50px height */
           btn.style.setProperty('padding', '0 20px', 'important');
           btn.style.setProperty('box-shadow', 'none', 'important');
           btn.style.setProperty('text-transform', 'none', 'important');
 
           btn.onmouseover = function() { 
-            btn.style.setProperty('background-color', '#333333', 'important'); 
-            btn.style.setProperty('color', '#ffffff', 'important'); 
+            btn.style.setProperty('background-color', '#d3d5d7', 'important'); 
           };
           btn.onmouseout = function() { 
-            btn.style.setProperty('background-color', 'transparent', 'important'); 
-            btn.style.setProperty('color', '#333333', 'important'); 
+            btn.style.setProperty('background-color', '#e2e4e6', 'important'); 
           };
         });
 
-        // 2. Format Email Input Field Blocks
+        // 3. Format Email Field Enclosures
         var inputFields = formInstance.querySelectorAll('input[type="email"], .form-control');
         inputFields.forEach(function(input) {
           input.style.setProperty('font-family', '"Helvetica Neue", Helvetica, Arial, sans-serif', 'important');
@@ -186,8 +187,8 @@
           input.onblur = function() { input.style.setProperty('border-color', '#cccccc', 'important'); };
         });
 
-        // 3. Elegant Book-Serif Styling for Consent & Unsubscribe Copy
-        var complianceLabels = formInstance.querySelectorAll('.ml-form-checkboxRow label, .ml-form-embedPermissions label, .ml-form-privacyText, label, p');
+        // 4. Anchor Consent Checkbox Text into Book Serif Theme
+        var complianceLabels = formInstance.querySelectorAll('.ml-form-checkboxRow label, .ml-form-embedPermissions label, label, p');
         complianceLabels.forEach(function(label) {
           label.style.setProperty('font-family', 'Georgia, "Times New Roman", serif', 'important');
           label.style.setProperty('color', '#444444', 'important');
@@ -203,7 +204,7 @@
         });
       }
 
-      // Live mutation observer to monitor form injection states
+      // Live mutation observer to monitor form injection states smoothly
       var structuralObserver = new MutationObserver(function() { overhaulEmbeddedForm(); });
       var domTarget = document.querySelector('.ml-embedded');
       if (domTarget) {
@@ -245,8 +246,10 @@
     <h2>Get the free pre‑gym guide</h2>
     <p>Five mistakes beginners make in the gym — and how to avoid them. Free PDF, no spam.</p>
     
+    <!-- Embedded MailerLite Form Instance Wrapper -->
     <div class="ml-embedded" data-form="tTpOUB"></div>
     
+    <!-- Custom Compliance Statement (Only text block displaying at the bottom) -->
     <p style="text-align:center; font-size:0.85em; color:#444444; margin-top:1.5em; margin-bottom:0; font-family: Georgia, serif;">
       By requesting this free guide, you agree to our <a href="/privacy.html" style="color:#111111; text-decoration:underline;">privacy policy</a>.
     </p>
