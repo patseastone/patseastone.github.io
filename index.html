@@ -15,7 +15,7 @@
       padding: 0 1.5em;
       line-height: 1.8;
       color: #222;
-      background: #faf8f5; /* Premium off-white paper canvas tone */
+      background: #faf8f5; 
       -webkit-font-smoothing: antialiased;
     }
     
@@ -24,7 +24,7 @@
       display: block;
       margin: 0 auto 2.5em;
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-      border: 1px solid #f0f0f0; /* Crisp edge definition for the white cover */
+      border: 1px solid #f0f0f0; 
       border-radius: 2px;
     }
 
@@ -67,8 +67,8 @@
       text-align: center;
       margin: 3em 0;
       padding: 1.5em;
-      border-top: 1px solid #e2e4e6;
-      border-bottom: 1px solid #e2e4e6;
+      border-top: 1px solid #eaeaea; /* Softened from e2e4e6 */
+      border-bottom: 1px solid #eaeaea; /* Softened from e2e4e6 */
     }
     .buy-links strong {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -87,9 +87,9 @@
     .signup {
       margin: 3.5em 0;
       padding: 3em 2.5em;
-      background: #ffffff; /* Crisp white makes the form pop off the page */
+      background: #ffffff; 
       border-radius: 6px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* Subtle lift */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
       border: 1px solid #eaeaea;
     }
     .signup h2 {
@@ -113,11 +113,11 @@
       font-size: 0.85em;
       color: #888;
       margin-top: 4em;
-      border-top: 1px solid #e2e4e6;
+      border-top: 1px solid #eaeaea;
       padding-top: 2em;
     }
     .footer a {
-      color: #C62828; /* Brand red for links */
+      color: #C62828; 
       text-decoration: none;
     }
     .footer a:hover {
@@ -132,6 +132,14 @@
       border: none !important;
       padding: 0 !important;
     }
+
+    /* Ensure Checkbox text is grey by default, allowing MailerLite to turn it red on error */
+    .ml-form-checkboxRow label, 
+    .ml-form-embedPermissions label,
+    .ml-form-checkboxRow label *, 
+    .ml-form-embedPermissions label * {
+      color: #555555;
+    }
   </style>
 
   <!-- MailerLite Core Engine Script -->
@@ -143,20 +151,19 @@
       ml('account', '2455462');
   </script>
 
-  <!-- Strict Style Normalizer Block (FIXED) -->
+  <!-- Strict Style Normalizer Block (Validation Bug Fixed) -->
   <script>
     (function() {
       function overhaulEmbeddedForm() {
         var formInstance = document.querySelector('.ml-embedded form');
         if (!formInstance) return;
 
-        // 1. Hide MailerLite's Injected Duplicate Privacy Text Cleanly
+        // 1. Hide MailerLite's Injected Duplicate Privacy Text
         var genericPrivacyText = formInstance.querySelector('.ml-form-privacyText');
         if (genericPrivacyText) {
           genericPrivacyText.style.setProperty('display', 'none', 'important');
         }
 
-        // Force form elements to stack 100% width cleanly
         var formGroups = formInstance.querySelectorAll('.ml-form-fieldRow, .ml-form-embedSubmit');
         formGroups.forEach(function(group) {
           group.style.setProperty('display', 'block', 'important');
@@ -164,14 +171,13 @@
           group.style.setProperty('margin-bottom', '15px', 'important');
         });
 
-        // 2. Uniform Button Layout Configuration (BRAND RED)
+        // 2. Uniform Button Layout Configuration
         var actionButtons = formInstance.querySelectorAll('button');
         actionButtons.forEach(function(btn) {
           btn.style.setProperty('background-color', '#C62828', 'important');
           btn.style.setProperty('background', '#C62828', 'important');
           btn.style.setProperty('color', '#ffffff', 'important');
           btn.style.setProperty('border', 'none', 'important');
-          
           btn.style.setProperty('text-align', 'center', 'important');
           btn.style.setProperty('font-family', '"Helvetica Neue", Helvetica, Arial, sans-serif', 'important');
           btn.style.setProperty('font-weight', 'bold', 'important');
@@ -191,7 +197,7 @@
           };
         });
 
-        // 3. Format Email Field Enclosures (Added Padding & Box-Sizing)
+        // 3. Format Email Field
         var inputFields = formInstance.querySelectorAll('input[type="email"], input[type="text"], .form-control');
         inputFields.forEach(function(input) {
           input.style.setProperty('font-family', '"Helvetica Neue", Helvetica, Arial, sans-serif', 'important');
@@ -200,7 +206,7 @@
           input.style.setProperty('border-radius', '4px', 'important');
           input.style.setProperty('height', '50px', 'important');
           input.style.setProperty('width', '100%', 'important');
-          input.style.setProperty('padding', '0 15px', 'important'); /* Stops text from hitting the edge */
+          input.style.setProperty('padding', '0 15px', 'important'); 
           input.style.setProperty('box-sizing', 'border-box', 'important');
           input.style.setProperty('color', '#222222', 'important');
           input.style.setProperty('background', '#ffffff', 'important');
@@ -215,11 +221,17 @@
           };
         });
 
-        // 4. Anchor Consent Checkbox Text into Book Serif Theme
+        // 4. Align Checkbox & Anchor Consent Fonts
+        // Removed the strict color enforcement to allow MailerLite's red error text to show
+        var checkboxes = formInstance.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(box) {
+          box.style.setProperty('position', 'relative', 'important');
+          box.style.setProperty('top', '2px', 'important'); /* Nudges the checkbox down to align with text */
+        });
+
         var complianceLabels = formInstance.querySelectorAll('.ml-form-checkboxRow label, .ml-form-embedPermissions label, label, p');
         complianceLabels.forEach(function(label) {
           label.style.setProperty('font-family', 'Georgia, "Times New Roman", serif', 'important');
-          label.style.setProperty('color', '#555555', 'important');
           label.style.setProperty('font-size', '14px', 'important');
           label.style.setProperty('line-height', '1.5', 'important');
           label.style.setProperty('margin-top', '5px', 'important');
@@ -228,19 +240,16 @@
         var childElements = formInstance.querySelectorAll('.ml-form-checkboxRow label *, .ml-form-embedPermissions label *');
         childElements.forEach(function(el) {
           el.style.setProperty('font-family', 'Georgia, "Times New Roman", serif', 'important');
-          el.style.setProperty('color', '#555555', 'important');
           el.style.setProperty('font-size', '14px', 'important');
         });
       }
 
-      // Live mutation observer to monitor form injection states smoothly
       var structuralObserver = new MutationObserver(function() { overhaulEmbeddedForm(); });
       var domTarget = document.querySelector('.ml-embedded');
       if (domTarget) {
         structuralObserver.observe(domTarget, { childList: true, subtree: true });
       }
 
-      // Safe continuous execution fallback cycle
       var trackingCycles = 0;
       var processLoop = setInterval(function() {
         overhaulEmbeddedForm();
