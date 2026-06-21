@@ -20,13 +20,19 @@
     }
     
     img {
-      max-width: 240px;
-      display: block;
-      margin: 0 auto 2.5em;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-      border: 1px solid #f0f0f0; 
-      border-radius: 2px;
-    }
+  max-width: 320px; /* Adjust size if needed, but this is a good baseline for desktop */
+  display: block;
+  margin: 0 auto 3em;
+  
+  /* 1. The Physical Edge */
+  border: 1px solid #eaeaea; 
+  border-radius: 3px; /* Mimics the slight natural rounding of paperback corners */
+  
+  /* 2. The Multi-Layered Drop Shadow */
+  box-shadow: 
+    3px 4px 10px rgba(0, 0, 0, 0.06),   /* Tight contact shadow (where book touches the desk) */
+    15px 22px 40px rgba(0, 0, 0, 0.14); /* Broad, soft ambient shadow (pulls it off the page) */
+}
 
     h1 {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
