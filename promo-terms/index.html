@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apple Books Promo Code Terms | Pat Seastone</title>
+  <style>
+    body { 
+      margin: 0; 
+      padding: 0; 
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+      background: #f4f5f6; 
+      display: flex; 
+      flex-direction: column; 
+      height: 100vh; 
+      overflow: hidden;
+    }
+    .header { 
+      background: #ffffff; 
+      padding: 1rem 2rem; 
+      border-bottom: 1px solid #eaeaea; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      z-index: 10;
+    }
+    .header h1 { 
+      font-size: 1.1rem; 
+      color: #111111; 
+      margin: 0; 
+      font-weight: bold;
+    }
+    .download-btn { 
+      background: #C62828; 
+      color: #ffffff; 
+      text-decoration: none; 
+      padding: 0.6rem 1.2rem; 
+      border-radius: 4px; 
+      font-weight: bold; 
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .download-btn:hover { 
+      background: #9E2020; 
+    }
+    .pdf-container { 
+      flex-grow: 1; 
+      width: 100%; 
+    }
+    object { 
+      width: 100%; 
+      height: 100%; 
+      border: none; 
+    }
+    
+    /* Mobile-friendly adjustments */
+    @media (max-width: 600px) {
+      .header { flex-direction: column; text-align: center; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Apple Books Promo Terms & Conditions</h1>
+    <!-- The "download" attribute forces the browser to download rather than open -->
+    <a href="apple-terms.pdf" download class="download-btn">Download PDF</a>
+  </div>
+
+  <div class="pdf-container">
+    <!-- Embeds the raw PDF perfectly for Desktop users -->
+    <object data="apple-terms.pdf" type="application/pdf">
+        <p style="text-align: center; padding: 3rem; color: #555555; font-family: Georgia, serif;">
+          Your mobile browser does not support inline PDFs. <br><br>
+          <a href="apple-terms.pdf" download style="color: #C62828; font-weight: bold; text-decoration: none;">Click here to download the file directly.</a>
+        </p>
+    </object>
+  </div>
+
+</body>
+</html>
