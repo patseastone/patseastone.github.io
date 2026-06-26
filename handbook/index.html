@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Complete Handbook | Pat Seastone</title>
+  <style>
+    /* ============================================================
+       GLOBAL STYLES & TYPOGRAPHY
+       ============================================================ */
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      max-width: 900px;
+      margin: 3em auto;
+      padding: 0 1.5em;
+      line-height: 1.7;
+      color: #1A1A1A;
+      background: #faf8f5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 2em;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.2em;
+      color: #111;
+    }
+
+    .subtitle {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 1.8em;
+    }
+
+    a {
+      color: #C62828;
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       PRODUCT LAYOUT
+       ============================================================ */
+    .product-container {
+      display: flex;
+      gap: 3em;
+      align-items: flex-start;
+      margin-bottom: 2.5em;
+    }
+
+    .product-cover {
+      flex: 0 0 280px;
+    }
+
+    .product-cover img {
+      width: 100%;
+      border: 1px solid #eaeaea;
+      border-radius: 3px;
+      box-shadow: 2px 4px 8px rgba(0,0,0,0.10), 8px 12px 16px rgba(0,0,0,0.14);
+    }
+
+    .product-details {
+      flex: 1;
+    }
+
+    .product-details h1 {
+      margin-top: 0;
+    }
+
+    .quick-start-teaser {
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 6px;
+      padding: 1.2em 1.5em;
+      margin: 1.8em 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .quick-start-teaser strong {
+      display: block;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.95em;
+      color: #C62828;
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .quick-start-teaser p {
+      margin: 0.5em 0;
+      font-size: 0.95em;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       VERSION BUTTONS
+       ============================================================ */
+    .version-buttons {
+      display: flex;
+      gap: 1em;
+      margin: 2em 0 2.5em;
+    }
+
+    .buy-button {
+      flex: 1;
+      display: inline-block;
+      background: #C62828;
+      color: #ffffff;
+      text-align: center;
+      padding: 0.9em 1.2em;
+      border-radius: 6px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      font-size: 1.05em;
+      text-decoration: none;
+      transition: background 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .buy-button:hover {
+      background: #9E2020;
+    }
+
+    .buy-button small {
+      display: block;
+      font-weight: normal;
+      font-size: 0.7em;
+      margin-top: 3px;
+      opacity: 0.85;
+    }
+
+    /* ============================================================
+       ILLUSTRATIONS ROW
+       ============================================================ */
+    .illustrations-row {
+      display: flex;
+      gap: 1em;
+      margin-top: 2.5em;
+      justify-content: center;
+    }
+
+    .illustrations-row img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 6px;
+      padding: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .illustrations-caption {
+      text-align: center;
+      font-size: 0.85em;
+      color: #888;
+      margin-top: 0.8em;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    /* ============================================================
+       CONFIRMATION MESSAGE (hidden by default)
+       ============================================================ */
+    #confirmation-message {
+      display: none;
+      text-align: center;
+      padding: 3em 2em;
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      margin-top: 2em;
+    }
+
+    #confirmation-message h2 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #1A1A1A;
+      margin-top: 0;
+    }
+
+    #confirmation-message p {
+      color: #555;
+      font-size: 1.05em;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      text-align: center;
+      font-size: 0.85em;
+      color: #888;
+      margin-top: 3em;
+      border-top: 1px solid #eaeaea;
+      padding-top: 1.5em;
+    }
+
+    .footer a {
+      color: #C62828;
+    }
+
+    /* ============================================================
+       RESPONSIVE — stack on mobile
+       ============================================================ */
+    @media (max-width: 680px) {
+      .product-container {
+        flex-direction: column;
+        gap: 1.5em;
+      }
+      .product-cover {
+        flex: 0 0 auto;
+        max-width: 260px;
+        margin: 0 auto;
+      }
+      .product-details h1 {
+        text-align: center;
+      }
+      .subtitle {
+        text-align: center;
+      }
+      .version-buttons {
+        flex-direction: column;
+      }
+      .illustrations-row {
+        flex-wrap: wrap;
+        gap: 0.8em;
+      }
+      .illustrations-row img {
+        width: 90px;
+        height: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       PRODUCT CONTENT (visible before purchase)
+       ============================================================ -->
+  <div id="product-content">
+
+    <div class="product-container">
+
+      <!-- Cover -->
+      <div class="product-cover">
+        <img src="cover.jpg" alt="The Complete Handbook book cover">
+      </div>
+
+      <!-- Details -->
+      <div class="product-details">
+        <h1>The Complete Handbook</h1>
+        <div class="subtitle">
+          A Beginner's Gym Guide to Lifting<br>
+          <em>No Rigid Plans. No Bro‑Science. Build Muscle, Strength, and Confidence on Your Own Terms.</em>
+        </div>
+
+        <p>You’ve decided to start going to the gym. Or to start again. Either way, the hardest part isn’t the weights — it’s the not‑knowing.</p>
+        <p><strong>The Complete Handbook</strong> is the gym guide that treats you like an adult. No mandatory exercises. No bro‑science. No rigid twelve‑week programme that assumes your body works exactly like everyone else’s.</p>
+        <p>Over 70 illustrated exercises, a session builder you control, and the first gym guide that trusts you to make your own decisions.</p>
+
+        <!-- Quick Start Card teaser -->
+        <div class="quick-start-teaser">
+          <strong>Quick Start Card included</strong>
+          <p>The absolute minimum you need to walk into a gym today and leave feeling like you did something right. What to wear. What to bring. Which exercises to pick. You're done before you've finished your warm‑up.</p>
+        </div>
+
+        <!-- Version buttons -->
+        <div class="version-buttons">
+          <a href="https://patseastone.gumroad.com/l/innjmj" data-gumroad-overlay="true" class="buy-button">
+            UK Edition — I want this!
+            <small>Original UK spelling, kg + lbs</small>
+          </a>
+          <a href="https://patseastone.gumroad.com/l/innjmj" data-gumroad-overlay="true" class="buy-button">
+            US Edition — I want this!
+            <small>US spelling, kg + lbs</small>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Illustrations row -->
+    <div class="illustrations-row">
+      <img src="https://raw.githubusercontent.com/patseastone/patseastone.github.io/main/images/Barbell_Back_Squat_start.png" alt="Barbell Back Squat">
+      <img src="https://raw.githubusercontent.com/patseastone/patseastone.github.io/main/images/Barbell_Flat_Bench_Press_start.png" alt="Barbell Flat Bench Press">
+      <img src="https://raw.githubusercontent.com/patseastone/patseastone.github.io/main/images/Lat_Pulldown_start.png" alt="Lat Pulldown">
+    </div>
+    <div class="illustrations-caption">Over 70 illustrated exercises with start and end positions — plus "If not this, then that" alternatives for every movement.</div>
+
+  </div>
+
+  <!-- ============================================================
+       CONFIRMATION MESSAGE (hidden until purchase)
+       ============================================================ -->
+  <div id="confirmation-message">
+    <h2>Thank you for your purchase!</h2>
+    <p>Your ebook will arrive in your email inbox shortly.</p>
+    <p>If you don't see it within a few minutes, please check your spam folder.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Pat Seastone &copy; 2026 &nbsp;|&nbsp; <a href="https://patseastone.com">patseastone.com</a>
+  </div>
+
+  <!-- Gumroad overlay checkout script -->
+  <script src="https://gumroad.com/js/gumroad-embed.js"></script>
+
+  <!-- Post-purchase confirmation listener -->
+  <script>
+    (function() {
+      var listener = function(ev) {
+        try {
+          var data = JSON.parse(ev.data);
+          if (data.post_message_name === "sale") {
+            document.getElementById('product-content').style.display = 'none';
+            document.getElementById('confirmation-message').style.display = 'block';
+          }
+        } catch (e) {
+          // ignore non-JSON messages
+        }
+      };
+      window.addEventListener('message', listener, false);
+    })();
+  </script>
+
+</body>
+</html>
