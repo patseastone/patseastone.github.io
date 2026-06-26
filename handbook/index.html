@@ -9,107 +9,75 @@
             font-family: Georgia, "Times New Roman", serif;
             background: #faf8f5;
             color: #1A1A1A;
-            max-width: 820px;
-            margin: 3em auto;
+            max-width: 860px;
+            margin: 2em auto;
             padding: 0 1.5em;
-            line-height: 1.7;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
-        h1 {
+        /* ---- header with cover + buy ---- */
+        .product-header {
+            display: flex;
+            gap: 2.5em;
+            align-items: flex-start;
+            margin-bottom: 2.5em;
+        }
+        .product-cover {
+            flex: 0 0 240px;
+        }
+        .product-cover img {
+            width: 100%;
+            border: 1px solid #eaeaea;
+            border-radius: 4px;
+            box-shadow: 2px 4px 10px rgba(0,0,0,0.08), 6px 10px 20px rgba(0,0,0,0.12);
+        }
+        .product-info {
+            flex: 1;
+            padding-top: 0.2em;
+        }
+        .product-info h1 {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 2.2em;
+            font-size: 2.1em;
             font-weight: 700;
-            margin: 0.8em 0 0.1em;
-            text-align: center;
+            margin: 0 0 0.1em;
             color: #111;
+            letter-spacing: -0.5px;
         }
         .subtitle {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 1.05em;
+            font-size: 1em;
             color: #555;
-            text-align: center;
-            margin: 0 0 0.2em;
+            margin-bottom: 0.3em;
         }
         .author {
-            text-align: center;
-            color: #777;
-            margin-bottom: 0.8em;
             font-size: 0.95em;
-        }
-        .cover-container {
-            text-align: center;
-            margin: 2em 0 1.5em;
-        }
-        .cover-container img {
-            width: 260px;
-            border: 1px solid #eaeaea;
-            border-radius: 3px;
-            box-shadow: 2px 4px 10px rgba(0,0,0,0.08), 6px 10px 20px rgba(0,0,0,0.12);
+            color: #777;
+            margin-bottom: 1.2em;
         }
         .price {
-            text-align: center;
             font-size: 2.2em;
             font-weight: bold;
             color: #C62828;
-            margin: 1.2em 0 0.8em;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        }
-        .synopsis {
-            background: #ffffff;
-            border: 1px solid #eaeaea;
-            border-radius: 6px;
-            padding: 2em 2em 1.5em;
-            margin: 2em 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-            font-size: 0.95em;
-        }
-        .synopsis p {
-            margin: 0 0 1.2em;
-        }
-        .synopsis ul {
-            padding-left: 1.5em;
-            margin: 1em 0 1.2em;
-        }
-        .synopsis li {
             margin-bottom: 0.5em;
-        }
-        .buy-card {
-            background: #ffffff;
-            border: 1px solid #eaeaea;
-            border-radius: 8px;
-            padding: 2em 2em 1.5em;
-            margin: 2em 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5em;
-        }
-        .buy-card .price-small {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #C62828;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
         .version-buttons {
             display: flex;
-            gap: 1.5em;
+            gap: 1em;
             flex-wrap: wrap;
-            justify-content: center;
         }
         .buy-button {
             display: inline-block;
             background: #C62828;
             color: #ffffff;
-            padding: 0.9em 2em;
-            border-radius: 6px;
+            padding: 0.75em 1.8em;
+            border-radius: 5px;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-weight: bold;
             font-size: 1em;
             text-decoration: none;
             transition: background 0.2s;
             text-align: center;
-            min-width: 180px;
             border: none;
             cursor: pointer;
         }
@@ -123,24 +91,35 @@
             margin-top: 4px;
             opacity: 0.9;
         }
-        .illustrations-section {
-            margin: 3em 0 2em;
-            text-align: center;
+        /* ---- synopsis ---- */
+        .synopsis {
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 6px;
+            padding: 2em 2.2em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            margin: 2.5em 0;
+            font-size: 0.95em;
         }
+        .synopsis p {
+            margin: 0 0 1em;
+        }
+        .synopsis ul {
+            padding-left: 1.5em;
+            margin: 1em 0 1.2em;
+        }
+        .synopsis li {
+            margin-bottom: 0.5em;
+        }
+        /* ---- illustrations ---- */
         .illustrations-row {
             display: flex;
             justify-content: center;
             gap: 2em;
             flex-wrap: wrap;
-            margin-bottom: 1.5em;
+            margin: 2em 0 1em;
         }
-        .illustration-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.6em;
-        }
-        .illustration-item img {
+        .illustrations-row img {
             width: 180px;
             height: 180px;
             object-fit: contain;
@@ -148,29 +127,9 @@
             border: 1px solid #eaeaea;
             border-radius: 6px;
             padding: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
         }
-        .illustration-label {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 0.8em;
-            color: #666;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
-        }
-        .illustrations-caption {
-            font-size: 1.05em;
-            color: #222;
-            font-weight: 600;
-            font-family: Georgia, serif;
-            margin-top: 1em;
-            border-top: 1px solid #eee;
-            padding-top: 1.5em;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.5;
-        }
+        /* ---- confirmation message ---- */
         #confirmation-message {
             display: none;
             text-align: center;
@@ -206,18 +165,24 @@
             color: #C62828;
             text-decoration: none;
         }
-        @media (max-width: 600px) {
-            .version-buttons {
+        @media (max-width: 680px) {
+            .product-header {
                 flex-direction: column;
                 align-items: center;
+                text-align: center;
             }
-            .buy-button {
-                width: 100%;
-                max-width: 260px;
+            .product-cover {
+                flex: 0 0 auto;
+                max-width: 240px;
             }
-            .illustration-item img {
-                width: 140px;
-                height: 140px;
+            .product-info h1,
+            .subtitle,
+            .author,
+            .price {
+                text-align: center;
+            }
+            .version-buttons {
+                justify-content: center;
             }
         }
     </style>
@@ -226,68 +191,54 @@
 
     <div id="product-content">
 
-        <!-- Cover, title, author -->
-        <div class="cover-container">
-            <img src="../cover.jpg" alt="The Complete Handbook book cover">
+        <!-- ===== HEADER: Cover + Purchase ===== -->
+        <div class="product-header">
+            <div class="product-cover">
+                <img src="../cover.jpg" alt="The Complete Handbook book cover">
+            </div>
+            <div class="product-info">
+                <h1>The Complete Handbook</h1>
+                <div class="subtitle">A Beginner's Gym Guide to Lifting</div>
+                <div class="author">by Pat Seastone</div>
+                <div class="price">£8.99</div>
+                <div class="version-buttons">
+                    <a href="https://patseastone.gumroad.com/l/innjmj" data-gumroad-overlay="true" class="buy-button">
+                        UK Edition – I want this!
+                        <small>Original UK spelling, kg + lbs</small>
+                    </a>
+                    <a href="https://patseastone.gumroad.com/l/innjmj" data-gumroad-overlay="true" class="buy-button">
+                        US Edition – I want this!
+                        <small>US spelling, kg + lbs</small>
+                    </a>
+                </div>
+            </div>
         </div>
-        <h1>The Complete Handbook</h1>
-        <div class="subtitle">A Beginner's Gym Guide to Lifting</div>
-        <div class="author">by Pat Seastone</div>
 
-        <!-- Full synopsis with original formatting -->
+        <!-- ===== Synopsis with proper bold & bullets ===== -->
         <div class="synopsis">
             <p>You’ve decided to start going to the gym. Or to start again. Either way, the hardest part isn’t the weights — it’s the not‑knowing.</p>
             <p><strong>The Complete Handbook</strong> is the gym guide that treats you like an adult. No mandatory exercises. No bro‑science. No rigid twelve‑week programme that assumes your body works exactly like everyone else’s. Instead, it gives you the principles that underpin every effective training programme — and the freedom to build something that actually fits your life.</p>
             <ul>
-                <li>The Quick Start Card — the absolute minimum you need to walk into a gym today and leave feeling like you did something right.</li>
-                <li>Complete beginner guidance — from understanding soreness and building confidence, to navigating the gym floor, warming up, and recovering well.</li>
-                <li>The principles behind the work — rep ranges, progressive overload, and how small changes in your grip or stance can shift the focus of an exercise, all explained clearly and calmly.</li>
-                <li>Over 70 illustrated exercises with a session builder that puts you in control — choose the movements you enjoy and build sessions around them.</li>
-                <li>“If not this, then that” alternatives for every exercise, because you should never feel stuck doing something you hate.</li>
-                <li>A gentle roadmap for your first six months, a troubleshooting guide for when things go wrong, and a simple training log to track your progress.</li>
+                <li><strong>The Quick Start Card</strong> — the absolute minimum you need to walk into a gym today and leave feeling like you did something right.</li>
+                <li><strong>Complete beginner guidance</strong> — from understanding soreness and building confidence, to navigating the gym floor, warming up, and recovering well.</li>
+                <li><strong>The principles behind the work</strong> — rep ranges, progressive overload, and how small changes in your grip or stance can shift the focus of an exercise, all explained clearly and calmly.</li>
+                <li><strong>Over 70 illustrated exercises</strong> with a session builder that puts you in control — choose the movements you enjoy and build sessions around them.</li>
+                <li><strong>“If not this, then that” alternatives</strong> for every exercise, because you should never feel stuck doing something you hate.</li>
+                <li><strong>A gentle roadmap</strong> for your first six months, a troubleshooting guide for when things go wrong, and a simple training log to track your progress.</li>
             </ul>
             <p>Whether you’re walking through the door for the first time, or returning after years away and wanting to lift on your own terms — this is where you start. No shouting. No rigid plans. Just the next right step.</p>
         </div>
 
-        <!-- Buy card with price and edition buttons -->
-        <div class="buy-card">
-            <div class="price-small">£8.99</div>
-            <div class="version-buttons">
-                <a href="https://patseastone.gumroad.com/l/innjmj" data-gumroad-overlay="true" class="buy-button">
-                    UK Edition – I want this!
-                    <small>Original UK spelling, kg + lbs</small>
-                </a>
-                <a href="https://patseastone.gumroad.com/l/innjmj" data-gumroad-overlay="true" class="buy-button">
-                    US Edition – I want this!
-                    <small>US spelling, kg + lbs</small>
-                </a>
-            </div>
-        </div>
-
-        <!-- Illustrations -->
-        <div class="illustrations-section">
-            <div class="illustrations-row">
-                <div class="illustration-item">
-                    <img src="../Barbell_Back_Squat_start.png" alt="Barbell Back Squat">
-                    <span class="illustration-label">Barbell Back Squat</span>
-                </div>
-                <div class="illustration-item">
-                    <img src="../Barbell_Flat_Bench_Press_start.png" alt="Barbell Flat Bench Press">
-                    <span class="illustration-label">Barbell Flat Bench Press</span>
-                </div>
-                <div class="illustration-item">
-                    <img src="../Lat_Pulldown_start.png" alt="Lat Pulldown">
-                    <span class="illustration-label">Lat Pulldown</span>
-                </div>
-            </div>
-            <div class="illustrations-caption">
-                Over 70 illustrated exercises with start and end positions — plus "If not this, then that" alternatives for every movement.
-            </div>
+        <!-- ===== Illustrations (no labels, no redundant caption) ===== -->
+        <div class="illustrations-row">
+            <img src="../Barbell_Back_Squat_start.png" alt="Barbell Back Squat">
+            <img src="../Barbell_Flat_Bench_Press_start.png" alt="Barbell Flat Bench Press">
+            <img src="../Lat_Pulldown_start.png" alt="Lat Pulldown">
         </div>
 
     </div>
 
-    <!-- Confirmation message (hidden until purchase) -->
+    <!-- ===== Confirmation message (hidden until purchase) ===== -->
     <div id="confirmation-message">
         <h2>Thank you for your purchase!</h2>
         <p>Your ebook will arrive in your email inbox shortly.</p>
