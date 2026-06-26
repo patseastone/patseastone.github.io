@@ -5,214 +5,225 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Complete Handbook | Pat Seastone</title>
     <style>
+        /* ============================================================
+           GLOBAL STYLES & TYPOGRAPHY
+           ============================================================ */
         body {
             font-family: Georgia, "Times New Roman", serif;
             background: #faf8f5;
-            color: #1A1A1A;
+            color: #222222;
             margin: 0;
             padding: 0;
-            line-height: 1.7;
+            line-height: 1.8;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Dark header */
-        .dark-header {
-            background: #1A1A1A;
-            color: #ffffff;
-            padding: 4em 2em 5em;
-            text-align: center;
-            position: relative;
-        }
-
-        .dark-header h1 {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 2.6em;
-            font-weight: 700;
-            margin: 0 0 0.1em;
-            letter-spacing: -0.5px;
-        }
-        .dark-header h1 em {
-            font-style: italic;
-        }
-
-        .dark-header .subtitle {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 1.15em;
-            color: #cccccc;
-            margin: 0.3em 0 0.2em;
-            font-weight: 400;
-        }
-
-        .dark-header .author {
-            font-size: 0.95em;
-            color: #aaaaaa;
-            margin-bottom: 1.5em;
-        }
-
-        .dark-header .price {
-            font-size: 2.2em;
-            font-weight: bold;
-            color: #C62828;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            margin: 0.5em 0 1em;
-        }
-
-        .dark-header .version-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1.2em;
-            flex-wrap: wrap;
-        }
-
-        .buy-button {
-            display: inline-block;
-            background: #C62828;
-            color: #ffffff;
-            padding: 0.7em 2em;
-            border-radius: 4px;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-weight: bold;
-            font-size: 1em;
-            text-decoration: none;
-            transition: background 0.2s, transform 0.1s;
-            border: none;
-            cursor: pointer;
-            min-width: 160px;
-        }
-        .buy-button:hover {
-            background: #9E2020;
-            transform: translateY(-1px);
-        }
-        .buy-button small {
-            display: block;
-            font-weight: normal;
-            font-size: 0.65em;
-            margin-top: 3px;
-            opacity: 0.9;
-        }
-
-        /* Cover image - overlaps header and content */
-        .cover-wrapper {
-            text-align: center;
-            margin-top: -4em;
-            position: relative;
-            z-index: 2;
-        }
-        .cover-wrapper img {
-            width: 240px;
-            border: 3px solid #ffffff;
-            border-radius: 6px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-            background: #ffffff;
-        }
-
-        /* Content area */
-        .content {
-            max-width: 720px;
-            margin: 2em auto 0;
-            padding: 0 1.5em 3em;
-        }
-
-        /* Synopsis */
-        .synopsis {
-            margin: 2em 0 2.5em;
-            font-size: 1em;
-            color: #1A1A1A;
-        }
-        .synopsis p {
-            margin: 0 0 1.2em;
-        }
-        .synopsis p:first-child {
-            font-weight: bold;
-        }
-        .synopsis ul {
-            padding-left: 1.5em;
-            margin: 1em 0 1.2em;
-        }
-        .synopsis li {
-            margin-bottom: 0.5em;
-        }
-        .synopsis strong {
-            color: #111;
-        }
-
-        /* Illustrations */
-        .illustrations-row {
-            display: flex;
-            justify-content: center;
-            gap: 2em;
-            flex-wrap: wrap;
-            margin: 3em 0 1.5em;
-        }
-        .illustrations-row img {
-            width: 180px;
-            height: 180px;
-            object-fit: contain;
-            background: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            transition: transform 0.2s;
-        }
-        .illustrations-row img:hover {
-            transform: scale(1.03);
-        }
-        .illustrations-caption {
-            text-align: center;
-            font-size: 0.9em;
-            color: #555;
-            margin-top: 0.5em;
-            font-style: italic;
-        }
-
-        /* Confirmation message */
-        #confirmation-message {
-            display: none;
-            text-align: center;
-            padding: 3em 2em;
-            background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-            margin: 2em 0;
-        }
-        #confirmation-message h2 {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            color: #1A1A1A;
-        }
-        #confirmation-message p {
-            color: #555;
-        }
-
-        .footer {
-            text-align: center;
-            font-size: 0.85em;
-            color: #888;
-            margin-top: 3em;
-            border-top: 1px solid #eaeaea;
-            padding-top: 1.5em;
-        }
-        .footer a {
-            color: #C62828;
-            text-decoration: none;
-        }
         a {
             color: #C62828;
             text-decoration: none;
         }
 
+        /* ============================================================
+           HERO SECTION (Cover, Title, Buttons)
+           ============================================================ */
+        .hero {
+            text-align: center;
+            padding: 5em 1.5em 3em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* The Physical Book Cover */
+        .hero img.cover-image {
+            max-width: 320px;
+            width: 100%;
+            display: block;
+            margin: 0 auto 2.5em;
+            border: 1px solid #e0e0e0;
+            border-radius: 3px;
+            box-shadow: 
+                2px 4px 8px rgba(0, 0, 0, 0.12),
+                8px 12px 16px rgba(0, 0, 0, 0.18);
+        }
+
+        .hero h1 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 2.4em;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #111111;
+            margin: 0 0 0.2em;
+        }
+
+        .hero .subtitle {
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 1.1em;
+            color: #555555;
+            margin: 0 auto 2em;
+            max-width: 600px;
+        }
+
+        .hero .price {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #111111;
+            margin-bottom: 1em;
+        }
+
+        /* Premium Buttons */
+        .version-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            flex-wrap: wrap;
+        }
+
+        .buy-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #C62828;
+            color: #ffffff;
+            padding: 1em 2em;
+            border-radius: 4px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid #C62828;
+            min-width: 240px;
+            box-shadow: 0 4px 10px rgba(198, 40, 40, 0.15);
+        }
+
+        .buy-button:hover {
+            background: #9E2020;
+            border-color: #9E2020;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(198, 40, 40, 0.25);
+            color: #ffffff;
+        }
+
+        .buy-button small {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            display: block;
+            font-weight: 400;
+            font-size: 0.75em;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+
+        /* ============================================================
+           CONTENT CARD (Synopsis & Images)
+           ============================================================ */
+        .content-wrapper {
+            max-width: 720px;
+            margin: 0 auto 4em;
+            padding: 0 1.5em;
+        }
+
+        .synopsis-card {
+            background: #ffffff;
+            padding: 3.5em 4em;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eaeaea;
+        }
+
+        .synopsis-card p {
+            margin: 0 0 1.5em;
+        }
+
+        .synopsis-card p:first-child {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #111111;
+        }
+
+        .synopsis-card ul {
+            padding-left: 1.5em;
+            margin: 1.5em 0;
+        }
+
+        .synopsis-card li {
+            margin-bottom: 0.8em;
+        }
+
+        .synopsis-card strong {
+            color: #111111;
+        }
+
+        /* Clean Illustrations */
+        .illustrations-row {
+            display: flex;
+            justify-content: center;
+            gap: 1.5em;
+            flex-wrap: wrap;
+            margin: 3.5em 0 1em;
+            border-top: 1px solid #eaeaea;
+            padding-top: 3em;
+        }
+
+        .illustrations-row img {
+            width: 140px;
+            height: auto;
+            object-fit: contain;
+            mix-blend-mode: multiply; /* Removes any slight white background discrepancies */
+        }
+
+        .illustrations-caption {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666666;
+            font-style: italic;
+            font-family: Georgia, serif;
+        }
+
+        /* ============================================================
+           UTILITIES & FOOTER
+           ============================================================ */
+        #confirmation-message {
+            display: none;
+            text-align: center;
+            padding: 4em 2em;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eaeaea;
+            max-width: 600px;
+            margin: 4em auto;
+        }
+
+        #confirmation-message h2 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #111111;
+            margin-top: 0;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.85em;
+            color: #888888;
+            padding: 2em 1.5em 4em;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Adjustments */
         @media (max-width: 680px) {
-            .dark-header {
-                padding: 3em 1.5em 4em;
+            .hero {
+                padding: 3em 1.5em 2em;
             }
-            .dark-header h1 {
+            .hero h1 {
                 font-size: 2em;
             }
-            .cover-wrapper img {
-                width: 200px;
-            }
-            .content {
-                padding: 0 1.2em 2em;
+            .hero img.cover-image {
+                max-width: 240px;
             }
             .version-buttons {
                 flex-direction: column;
@@ -220,7 +231,13 @@
             }
             .buy-button {
                 width: 100%;
-                max-width: 280px;
+                max-width: 300px;
+            }
+            .synopsis-card {
+                padding: 2em 1.5em;
+            }
+            .illustrations-row img {
+                width: 110px;
             }
         }
     </style>
@@ -229,34 +246,33 @@
 
     <div id="product-content">
 
-        <!-- ===== Dark Header ===== -->
-        <div class="dark-header">
-            <h1><em>The Complete Handbook</em></h1>
+        <!-- ===== HERO SECTION ===== -->
+        <div class="hero">
+            <img src="../cover.jpg" alt="The Complete Handbook book cover" class="cover-image">
+            
+            <h1>The Complete Handbook</h1>
             <div class="subtitle">No Rigid Plans. No Bro‑Science. Build Muscle, Strength, and Confidence on Your Own Terms.</div>
-            <div class="author">by Pat Seastone</div>
+            
             <div class="price">£8.99</div>
+            
             <div class="version-buttons">
                 <a href="https://patseastone.gumroad.com/l/innjmj" data-gumroad-overlay="true" class="buy-button">
-                    UK Edition – I want this!
+                    Buy UK Edition
                     <small>Original UK spelling, kg + lbs</small>
                 </a>
                 <a href="https://patseastone.gumroad.com/l/innjmj" data-gumroad-overlay="true" class="buy-button">
-                    US Edition – I want this!
+                    Buy US Edition
                     <small>US spelling, kg + lbs</small>
                 </a>
             </div>
         </div>
 
-        <!-- ===== Cover image overlapping ===== -->
-        <div class="cover-wrapper">
-            <img src="../cover.jpg" alt="The Complete Handbook book cover">
-        </div>
-
-        <!-- ===== Synopsis (no card, clean text) ===== -->
-        <div class="content">
-            <div class="synopsis">
+        <!-- ===== CONTENT CARD ===== -->
+        <div class="content-wrapper">
+            <div class="synopsis-card">
                 <p>You’ve decided to start going to the gym. Or to start again. Either way, the hardest part isn’t the weights — it’s the not‑knowing.</p>
                 <p><strong>The Complete Handbook</strong> is the gym guide that treats you like an adult. No mandatory exercises. No bro‑science. No rigid twelve‑week programme that assumes your body works exactly like everyone else’s. Instead, it gives you the principles that underpin every effective training programme — and the freedom to build something that actually fits your life.</p>
+                
                 <ul>
                     <li><strong>The Quick Start Card</strong> — the absolute minimum you need to walk into a gym today and leave feeling like you did something right.</li>
                     <li><strong>Complete beginner guidance</strong> — from understanding soreness and building confidence, to navigating the gym floor, warming up, and recovering well.</li>
@@ -265,31 +281,34 @@
                     <li><strong>“If not this, then that” alternatives</strong> for every exercise, because you should never feel stuck doing something you hate.</li>
                     <li><strong>A gentle roadmap</strong> for your first six months, a troubleshooting guide for when things go wrong, and a simple training log to track your progress.</li>
                 </ul>
+                
                 <p>Whether you’re walking through the door for the first time, or returning after years away and wanting to lift on your own terms — this is where you start. No shouting. No rigid plans. Just the next right step.</p>
-            </div>
 
-            <!-- Illustrations row -->
-            <div class="illustrations-row">
-                <img src="../Barbell_Back_Squat_start.png" alt="Barbell Back Squat">
-                <img src="../Barbell_Flat_Bench_Press_start.png" alt="Barbell Flat Bench Press">
-                <img src="../Lat_Pulldown_start.png" alt="Lat Pulldown">
+                <!-- Illustrations embedded cleanly inside the card -->
+                <div class="illustrations-row">
+                    <img src="../Barbell_Back_Squat_start.png" alt="Barbell Back Squat">
+                    <img src="../Barbell_Flat_Bench_Press_start.png" alt="Barbell Flat Bench Press">
+                    <img src="../Lat_Pulldown_start.png" alt="Lat Pulldown">
+                </div>
+                <div class="illustrations-caption">Over 70 illustrated exercises with start & end positions — plus "If not this, then that" alternatives.</div>
             </div>
-            <div class="illustrations-caption">Over 70 illustrated exercises with start & end positions — plus "If not this, then that" alternatives for every movement.</div>
         </div>
 
     </div>
 
-    <!-- ===== Confirmation ===== -->
+    <!-- ===== CONFIRMATION STATE ===== -->
     <div id="confirmation-message">
         <h2>Thank you for your purchase!</h2>
         <p>Your ebook will arrive in your email inbox shortly.</p>
         <p>If you don't see it within a few minutes, please check your spam folder.</p>
     </div>
 
+    <!-- ===== FOOTER ===== -->
     <div class="footer">
         Pat Seastone &copy; 2026 &nbsp;|&nbsp; <a href="https://patseastone.com">patseastone.com</a>
     </div>
 
+    <!-- Gumroad Scripts -->
     <script src="https://gumroad.com/js/gumroad-embed.js"></script>
     <script>
         (function() {
@@ -299,6 +318,7 @@
                     if (data.post_message_name === "sale") {
                         document.getElementById('product-content').style.display = 'none';
                         document.getElementById('confirmation-message').style.display = 'block';
+                        window.scrollTo(0, 0); /* Scrolls to top on successful purchase */
                     }
                 } catch (e) {}
             };
