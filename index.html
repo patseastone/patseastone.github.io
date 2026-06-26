@@ -10,297 +10,368 @@
        ============================================================ */
     body {
       font-family: Georgia, "Times New Roman", serif;
-      max-width: 650px;
-      margin: 4em auto;
-      padding: 0 1.5em;
+      background: #faf8f5;
+      color: #1A1A1A;
+      margin: 0;
+      padding: 0;
       line-height: 1.8;
-      color: #222;
-      background: #faf8f5; 
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    
-    img {
-  max-width: 320px; /* Adjust size if needed, but this is a good baseline for desktop */
-  display: block;
-  margin: 0 auto 3em;
-  
-  /* 1. The Physical Edge */
-  border: 1px solid #eaeaea; 
-  border-radius: 3px; /* Mimics the slight natural rounding of paperback corners */
-  
-  /* 2. The Multi-Layered Drop Shadow */
-  box-shadow: 
-    2px 4px 8px rgba(0, 0, 0, 0.12),   /* Tight contact shadow (where book touches the desk) */
-    8px 12px 16px rgba(0, 0, 0, 0.18); /* Broad, soft ambient shadow (pulls it off the page) */
-}
 
-    h1 {
+    a {
+      color: #C62828;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #1A1A1A;
+    }
+
+    /* Container sizing */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4em 1.5em;
+    }
+
+    /* ============================================================
+       HERO SECTION (2-Column on Desktop for Above-The-Fold Buttons)
+       ============================================================ */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 3.5em;
+      margin-bottom: 4em;
+    }
+
+    .hero-image {
+      flex: 0 0 280px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #eaeaea;
+      border-radius: 2px;
+      box-shadow: 
+        2px 4px 8px rgba(0, 0, 0, 0.08),
+        8px 16px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-content {
+      flex: 1;
+      text-align: left;
+    }
+
+    .hero-content h1 {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      text-align: center;
-      font-size: 2.2em;
+      font-size: 2.4em;
       font-weight: 700;
       letter-spacing: -0.5px;
-      margin-bottom: 0.2em;
-      color: #111;
+      color: #1A1A1A;
+      margin: 0 0 0.1em;
     }
 
-    .subtitle {
-      text-align: center;
-      font-size: 1.05em;
-      color: #555;
-      margin-bottom: 2.5em;
-    }
-    .subtitle br {
+    .hero-content .subtitle {
+      font-size: 1.1em;
+      color: #1A1A1A;
       margin-bottom: 0.5em;
-      display: block;
-      content: "";
     }
-    .subtitle em {
-      font-size: 0.95em;
-      color: #666;
+
+    .hero-content .subtitle em {
       display: block;
+      font-size: 0.9em;
+      color: #555555;
+      margin-top: 0.3em;
+      line-height: 1.5;
+    }
+
+    .hero-content .author {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.85em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888888;
+      margin-bottom: 2em;
+    }
+
+    .hero-content .price {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #1A1A1A;
+      margin-bottom: 1em;
+    }
+
+    /* Premium Outline Buttons */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8em;
+    }
+
+    .btn-buy {
+      display: block;
+      text-align: center;
+      padding: 0.8em 1.5em;
+      border: 1px solid #1A1A1A;
+      border-radius: 3px;
+      background: transparent;
+      color: #1A1A1A;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 1em;
+      transition: all 0.2s ease;
+    }
+
+    .btn-buy:hover {
+      background: #1A1A1A;
+      color: #faf8f5;
+    }
+
+    .btn-buy small {
+      display: block;
+      font-weight: 400;
+      font-size: 0.75em;
+      margin-top: 3px;
+      opacity: 0.7;
+    }
+
+    .btn-buy:hover small {
+      opacity: 0.9;
+    }
+
+    /* ============================================================
+       FREE PDF / LEAD MAGNET
+       ============================================================ */
+    .lead-magnet {
+      text-align: center;
+      padding: 2em 1em;
+      margin-bottom: 4em;
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .lead-magnet p {
+      margin: 0 0 0.5em;
+      color: #1A1A1A;
+    }
+
+    .download-link {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      font-size: 0.95em;
+      display: inline-block;
       margin-top: 0.5em;
     }
 
-    .description {
-      margin-bottom: 3em;
-    }
-    .description p {
-      margin-bottom: 1.2em;
-    }
-
-    .buy-links {
-      text-align: center;
-      margin: 3em 0;
-      padding: 1.5em;
-      border-top: 1px solid #eaeaea; /* Softened from e2e4e6 */
-      border-bottom: 1px solid #eaeaea; /* Softened from e2e4e6 */
-    }
-    .buy-links strong {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 1.1em;
-      color: #111;
-    }
-    .buy-links em {
-      display: block;
-      margin-top: 0.3em;
-      color: #666;
-    }
-    
     /* ============================================================
-       PREMIUM SIGNUP CARD  (Now used for the direct download link)
+       SYNOPSIS (EDITORIAL TEXT)
        ============================================================ */
-    .signup {
-      margin: 3.5em 0;
-      padding: 3em 2.5em;
-      background: #ffffff; 
-      border-radius: 6px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
-      border: 1px solid #eaeaea;
-    }
-    .signup h2 {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 1.6em;
-      margin-top: 0;
-      margin-bottom: 0.4em;
-      text-align: center;
-      color: #111;
-    }
-    .signup > p {
-      text-align: center;
-      color: #555;
-      margin-bottom: 2.2em;
-      font-size: 0.95em;
+    .synopsis {
+      margin-bottom: 4em;
+      font-size: 1.05em;
     }
 
-    /* Footer */
+    .synopsis p:first-of-type {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #111111;
+    }
+
+    .synopsis ul {
+      padding-left: 1.2em;
+      margin: 2em 0;
+    }
+
+    .synopsis li {
+      margin-bottom: 1em;
+    }
+
+    .synopsis strong {
+      color: #1A1A1A;
+    }
+
+    /* ============================================================
+       A+ VISUAL BANNERS
+       ============================================================ */
+    .aplus-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5em;
+      margin-bottom: 4em;
+    }
+
+    .aplus-gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    /* ============================================================
+       CONFIRMATION & FOOTER
+       ============================================================ */
+    #confirmation-message {
+      display: none;
+      text-align: center;
+      padding: 5em 1em;
+    }
+
+    #confirmation-message h2 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 2em;
+      color: #1A1A1A;
+      margin-bottom: 0.5em;
+    }
+
     .footer {
       text-align: center;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 0.85em;
-      color: #888;
+      color: #888888;
       margin-top: 4em;
-      border-top: 1px solid #eaeaea;
       padding-top: 2em;
+      border-top: 1px solid #e0e0e0;
     }
+
     .footer a {
-      color: #C62828; 
-      text-decoration: none;
-    }
-    .footer a:hover {
+      color: #888888;
       text-decoration: underline;
     }
 
-    /* Strip Out MailerLite Form Internal Layout Tint Overlays */
-    .ml-embedded, .ml-form-embedContainer, .ml-form-embedWrapper, .ml-form-embedBody {
-      background: transparent !important;
-      background-color: transparent !important;
-      box-shadow: none !important;
-      border: none !important;
-      padding: 0 !important;
+    .footer a:hover {
+      color: #1A1A1A;
     }
 
-    /* Ensure Checkbox text is grey by default, allowing MailerLite to turn it red on error */
-    .ml-form-checkboxRow label, 
-    .ml-form-embedPermissions label,
-    .ml-form-checkboxRow label *, 
-    .ml-form-embedPermissions label * {
-      color: #555555;
+    /* ============================================================
+       MOBILE RESPONSIVENESS
+       ============================================================ */
+    @media (max-width: 680px) {
+      .container {
+        padding: 2.5em 1.2em;
+      }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5em;
+      }
+      .hero-image {
+        flex: 0 0 auto;
+      }
+      .hero-image img {
+        max-width: 220px;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .btn-buy {
+        width: 100%;
+        box-sizing: border-box;
+      }
     }
   </style>
-
-  <!-- MailerLite Core Engine Script -->
-  <script>
-      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-      ml('account', '2455462');
-  </script>
-
-  <!-- Strict Style Normalizer Block (Validation Bug Fixed) -->
-  <script>
-    (function() {
-      function overhaulEmbeddedForm() {
-        var formInstance = document.querySelector('.ml-embedded form');
-        if (!formInstance) return;
-
-        // 1. Hide MailerLite's Injected Duplicate Privacy Text
-        var genericPrivacyText = formInstance.querySelector('.ml-form-privacyText');
-        if (genericPrivacyText) {
-          genericPrivacyText.style.setProperty('display', 'none', 'important');
-        }
-
-        var formGroups = formInstance.querySelectorAll('.ml-form-fieldRow, .ml-form-embedSubmit');
-        formGroups.forEach(function(group) {
-          group.style.setProperty('display', 'block', 'important');
-          group.style.setProperty('width', '100%', 'important');
-          group.style.setProperty('margin-bottom', '15px', 'important');
-        });
-
-        // 2. Uniform Button Layout Configuration
-        var actionButtons = formInstance.querySelectorAll('button');
-        actionButtons.forEach(function(btn) {
-          btn.style.setProperty('background-color', '#C62828', 'important');
-          btn.style.setProperty('background', '#C62828', 'important');
-          btn.style.setProperty('color', '#ffffff', 'important');
-          btn.style.setProperty('border', 'none', 'important');
-          btn.style.setProperty('text-align', 'center', 'important');
-          btn.style.setProperty('font-family', '"Helvetica Neue", Helvetica, Arial, sans-serif', 'important');
-          btn.style.setProperty('font-weight', 'bold', 'important');
-          btn.style.setProperty('font-size', '16px', 'important');
-          btn.style.setProperty('border-radius', '4px', 'important');
-          btn.style.setProperty('height', '50px', 'important');
-          btn.style.setProperty('width', '100%', 'important');
-          btn.style.setProperty('cursor', 'pointer', 'important');
-          btn.style.setProperty('box-shadow', 'none', 'important');
-          btn.style.setProperty('transition', 'background-color 0.2s', 'important');
-
-          btn.onmouseover = function() { 
-            btn.style.setProperty('background-color', '#9E2020', 'important'); 
-          };
-          btn.onmouseout = function() { 
-            btn.style.setProperty('background-color', '#C62828', 'important'); 
-          };
-        });
-
-        // 3. Format Email Field
-        var inputFields = formInstance.querySelectorAll('input[type="email"], input[type="text"], .form-control');
-        inputFields.forEach(function(input) {
-          input.style.setProperty('font-family', '"Helvetica Neue", Helvetica, Arial, sans-serif', 'important');
-          input.style.setProperty('font-size', '16px', 'important');
-          input.style.setProperty('border', '1px solid #cccccc', 'important');
-          input.style.setProperty('border-radius', '4px', 'important');
-          input.style.setProperty('height', '50px', 'important');
-          input.style.setProperty('width', '100%', 'important');
-          input.style.setProperty('padding', '0 15px', 'important'); 
-          input.style.setProperty('box-sizing', 'border-box', 'important');
-          input.style.setProperty('color', '#222222', 'important');
-          input.style.setProperty('background', '#ffffff', 'important');
-          input.style.setProperty('margin-bottom', '10px', 'important');
-
-          input.onfocus = function() { 
-              input.style.setProperty('border-color', '#C62828', 'important'); 
-              input.style.setProperty('outline', 'none', 'important');
-          };
-          input.onblur = function() { 
-              input.style.setProperty('border-color', '#cccccc', 'important'); 
-          };
-        });
-
-        // 4. Align Checkbox & Anchor Consent Fonts
-        // Removed the strict color enforcement to allow MailerLite's red error text to show
-        var checkboxes = formInstance.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach(function(box) {
-          box.style.setProperty('position', 'relative', 'important');
-          box.style.setProperty('top', '2px', 'important'); /* Nudges the checkbox down to align with text */
-        });
-
-        var complianceLabels = formInstance.querySelectorAll('.ml-form-checkboxRow label, .ml-form-embedPermissions label, label, p');
-        complianceLabels.forEach(function(label) {
-          label.style.setProperty('font-family', 'Georgia, "Times New Roman", serif', 'important');
-          label.style.setProperty('font-size', '14px', 'important');
-          label.style.setProperty('line-height', '1.5', 'important');
-          label.style.setProperty('margin-top', '5px', 'important');
-        });
-
-        var childElements = formInstance.querySelectorAll('.ml-form-checkboxRow label *, .ml-form-embedPermissions label *');
-        childElements.forEach(function(el) {
-          el.style.setProperty('font-family', 'Georgia, "Times New Roman", serif', 'important');
-          el.style.setProperty('font-size', '14px', 'important');
-        });
-      }
-
-      var structuralObserver = new MutationObserver(function() { overhaulEmbeddedForm(); });
-      var domTarget = document.querySelector('.ml-embedded');
-      if (domTarget) {
-        structuralObserver.observe(domTarget, { childList: true, subtree: true });
-      }
-
-      var trackingCycles = 0;
-      var processLoop = setInterval(function() {
-        overhaulEmbeddedForm();
-        if (++trackingCycles > 50) clearInterval(processLoop);
-      }, 100);
-    })();
-  </script>
 </head>
 <body>
 
-  <img src="cover.jpg" alt="The Complete Handbook book cover">
+  <div class="container" id="product-content">
 
-  <h1>The Complete Handbook</h1>
-  <div class="subtitle">
-    A Beginner's Gym Guide to Lifting<br>
-    <em>No Rigid Plans. No Bro‑Science. Build Muscle, Strength, and Confidence on Your Own Terms.</em>
+    <!-- HERO SECTION -->
+    <div class="hero">
+      <div class="hero-image">
+        <img src="cover.jpg" alt="The Complete Handbook book cover">
+      </div>
+      <div class="hero-content">
+        <h1>The Complete Handbook</h1>
+        <div class="subtitle">
+          A Beginner's Guide To Lifting<br>
+          <em>No Rigid Plans. No Bro-Science. Build Muscle, Strength, and Confidence on Your Own Terms.</em>
+        </div>
+        <div class="author">by Pat Seastone</div>
+        
+        <div class="price">£8.99</div>
+        
+        <div class="btn-group">
+          <a href="https://patseastone.gumroad.com/l/innjmj" data-gumroad-overlay="true" class="btn-buy">
+            UK Edition – I want this!
+            <small>Original UK spelling, kg + lbs</small>
+          </a>
+          <a href="https://patseastone.gumroad.com/l/innjmj" data-gumroad-overlay="true" class="btn-buy">
+            US Edition – I want this!
+            <small>US spelling, kg + lbs</small>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FREE PDF LEAD MAGNET -->
+    <div class="lead-magnet">
+      <p><strong>Free pre‑gym guide</strong> – Five mistakes beginners make — and how to avoid them.</p>
+      <a href="five-mistakes.pdf" class="download-link" target="_blank">Download your free copy &rarr;</a>
+    </div>
+
+    <!-- SYNOPSIS -->
+    <div class="synopsis">
+      <p>You’ve decided to start going to the gym. Or to start again. Either way, the hardest part isn’t the weights — it’s the not‑knowing.</p>
+      
+      <p><em><strong>The Complete Handbook</strong></em> is the gym guide that treats you like an adult. No mandatory exercises. No bro‑science. No rigid twelve‑week programme that assumes your body works exactly like everyone else’s. Instead, it gives you the principles that underpin every effective training programme — and the freedom to build something that actually fits your life.</p>
+      
+      <ul>
+        <li><strong>The Quick Start Card</strong> — the absolute minimum you need to walk into a gym today and leave feeling like you did something right.</li>
+        <li><strong>Complete beginner guidance</strong> — from understanding soreness and building confidence, to navigating the gym floor, warming up, and recovering well.</li>
+        <li><strong>The principles behind the work</strong> — rep ranges, progressive overload, and how small changes in your grip or stance can shift the focus of an exercise, all explained clearly and calmly.</li>
+        <li><strong>Over 70 illustrated exercises</strong> with a session builder that puts you in control — choose the movements you enjoy and build sessions around them.</li>
+        <li><strong>“If not this, then that” alternatives</strong> for every exercise, because you should never feel stuck doing something you hate.</li>
+        <li><strong>A gentle roadmap</strong> for your first six months, a troubleshooting guide for when things go wrong, and a simple training log to track your progress.</li>
+      </ul>
+      
+      <p>Whether you’re walking through the door for the first time, or returning after years away and wanting to lift on your own terms — this is where you start. No shouting. No rigid plans. Just the next right step.</p>
+    </div>
+
+    <!-- A+ VISUAL BANNERS -->
+    <div class="aplus-gallery">
+      <img src="aplus-banner-1.png" alt="The Gym Guide That Doesn't Yell At You">
+      <img src="aplus-banner-2.png" alt="Over 70 illustrated exercises">
+      <img src="aplus-banner-3.png" alt="You don't need to be ready. You just need to start.">
+    </div>
+
   </div>
 
-  <p style="text-align:center; margin-bottom:1.5em;">
-  <strong style="color:#C62828;">Free pre‑gym guide</strong><br>
-  <em>Five mistakes beginners make — and how to avoid them.</em><br>
-  <a href="/five-mistakes.pdf" style="color:#C62828; text-decoration:none;">Download your free copy →</a>
-</p>
-
-  <div class="description">
-    <p>You've decided to start going to the gym. You just don't know what to do when you get there.</p>
-    <p><strong>The Complete Handbook</strong> is the gym guide for people who've never lifted before — and who are tired of books that hand them a rigid twelve‑week programme and expect them to follow it exactly.</p>
-    <p>No mandatory exercises. No bro‑science. Over 70 illustrated exercises, a session builder you control, and the first gym guide that trusts you to make your own decisions.</p>
-    <p>Whether you want to build muscle, get stronger, or simply feel at home in the gym — this is where you start.</p>
+  <!-- CONFIRMATION MESSAGE -->
+  <div class="container" id="confirmation-message">
+    <h2>Thank you for your purchase!</h2>
+    <p>Your ebook will arrive in your email inbox shortly.</p>
+    <p>If you don't see it within a few minutes, please check your spam folder.</p>
   </div>
 
-  <div class="buy-links">
-    <strong>Buy the book:</strong>
-    <em>Links coming soon — the book launches shortly.</em>
+  <!-- FOOTER -->
+  <div class="container" style="padding-top: 0; padding-bottom: 2em;">
+    <div class="footer">
+      Pat Seastone &copy; 2026 &nbsp;|&nbsp; <a href="press.html">Press Kit</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy</a>
+    </div>
   </div>
 
-  <div class="signup">
-    <h2>Get the free pre‑gym guide</h2>
-    <p>Five mistakes beginners make in the gym — and how to avoid them. Free PDF, no sign‑up.</p>
-    <p style="text-align:center;"><a href="/five-mistakes.pdf" style="color:#C62828; font-weight:bold; text-decoration:none;">Download your free copy →</a></p>
-  </div>
-
-  <div class="footer">
-    Pat Seastone &copy; 2026 &nbsp;|&nbsp; <a href="press.html">Press Kit</a>
-  </div>
+  <!-- GUMROAD INTEGRATION -->
+  <script src="https://gumroad.com/js/gumroad-embed.js"></script>
+  <script>
+    (function() {
+      var listener = function(ev) {
+        try {
+          var data = JSON.parse(ev.data);
+          if (data.post_message_name === "sale") {
+            document.getElementById('product-content').style.display = 'none';
+            document.getElementById('confirmation-message').style.display = 'block';
+            window.scrollTo(0, 0);
+          }
+        } catch (e) {}
+      };
+      window.addEventListener('message', listener, false);
+    })();
+  </script>
 
 </body>
 </html>
