@@ -296,13 +296,13 @@
         <div class="price">£8.99</div>
         
         <div class="btn-group">
-          <a href="https://patseastone.gumroad.com/l/innjmj" data-gumroad-overlay="true" class="btn-buy">
-            UK Edition – Buy now
-            <small>Original UK spelling, kg + lbs</small>
+          <a href="https://www.amazon.co.uk/dp/B0H6KRFZFP" class="btn-buy">
+            Buy on Amazon
+            <small>Available in all territories</small>
           </a>
-          <a href="https://patseastone.gumroad.com/l/innjmj" data-gumroad-overlay="true" class="btn-buy">
-            US Edition – Buy now
-            <small>US spelling, kg + lbs</small>
+          <a href="https://books.apple.com/us/book/id6783363379" class="btn-buy">
+            Buy on Apple Books
+            <small>Available in 25 stores</small>
           </a>
         </div>
       </div>
@@ -341,13 +341,7 @@
 
   </div>
 
-  <!-- CONFIRMATION MESSAGE -->
-  <div class="container" id="confirmation-message">
-    <h2>Thank you for your purchase!</h2>
-    <p>Your ebook will arrive in your email inbox shortly.</p>
-    <p>If you don't see it within a few minutes, please check your spam folder.</p>
-  </div>
-
+  
   <!-- FOOTER -->
   <div class="container" style="padding-top: 0; padding-bottom: 2em;">
     <div class="footer">
@@ -355,23 +349,6 @@
     </div>
   </div>
 
-  <!-- GUMROAD INTEGRATION -->
-  <script src="https://gumroad.com/js/gumroad-embed.js"></script>
-  <script>
-    (function() {
-      var listener = function(ev) {
-        try {
-          var data = JSON.parse(ev.data);
-          if (data.post_message_name === "sale") {
-            document.getElementById('product-content').style.display = 'none';
-            document.getElementById('confirmation-message').style.display = 'block';
-            window.scrollTo(0, 0);
-          }
-        } catch (e) {}
-      };
-      window.addEventListener('message', listener, false);
-    })();
-  </script>
 
 </body>
 </html>
